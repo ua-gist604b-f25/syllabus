@@ -7,7 +7,7 @@ This directory contains HTML-based tools and student-facing content for GIST 604
 ### `slides/` - Student-Facing Slideshows
 Student-accessible Reveal.js presentations for course videos.
 
-**GitHub Pages URL:** https://ua-gist604b-f25.github.io/syllabus/html/slides/
+**GitHub Pages URL:** https://ua-gist604b-f25.github.io/syllabus/slides/
 
 Contains:
 - `index.html` - Main slides index page
@@ -15,7 +15,7 @@ Contains:
 - `module-1/` - Module 1 slides
 - (additional modules added as course progresses)
 
-**Deployment:** This directory should be pushed to the `ua-gist604b-f25/syllabus` repository and served via GitHub Pages (main branch, /html folder).
+**Deployment:** This directory should be pushed to the `ua-gist604b-f25/syllabus` repository and served via GitHub Pages (main branch, /docs folder).
 
 ### `videos.html` - Instructor Planning Tool
 Internal tracking page for video development status (instructor-only, not published to student repo).

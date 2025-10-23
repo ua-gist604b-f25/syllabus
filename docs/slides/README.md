@@ -2,7 +2,7 @@
 
 This directory contains student-facing Reveal.js slideshows for GIST 604B.
 
-**Access:** https://ua-gist604b-f25.github.io/syllabus/html/slides/
+**Access:** https://ua-gist604b-f25.github.io/syllabus/slides/
 
 ## Structure
 
