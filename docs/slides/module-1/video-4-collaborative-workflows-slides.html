@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css">
     <style>
-        .reveal h1 { font-size: 1.625em; margin-bottom: 0.3em; }
-        .reveal h2 { font-size: 1.17em; margin-bottom: 0.3em; }
-        .reveal h3 { font-size: 0.91em; margin-bottom: 0.2em; }
+        .reveal h1 { font-size: 1.625em; margin-bottom: 0.3em; margin-top: 0; }
+        .reveal h2 { font-size: 1.17em; margin-bottom: 0.3em; margin-top: 0; }
+        .reveal h3 { font-size: 0.91em; margin-bottom: 0.2em; margin-top: 0; }
         .reveal ul { font-size: 0.65em; }
         .reveal li { margin: 0.25em 0; line-height: 1.3; }
         .reveal p { font-size: 0.7em; margin: 0.4em 0; line-height: 1.3; }
@@ -18,6 +18,16 @@
         .reveal code { font-family: 'Courier New', monospace; background: #f5f5f5; padding: 0.1em 0.3em; font-size: 0.9em; }
         .reveal section { text-align: left; }
         .reveal h1, .reveal h2, .reveal h3 { text-align: center; }
+        .reveal .slides { text-align: center; }
+        .reveal .slides section { 
+            height: 100%; 
+            padding-top: 0.5em;
+            padding-bottom: 2em;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .reveal .slides section > * { flex-shrink: 0; }
         .diagram-box { border: 2px solid #333; padding: 0.6em; margin: 0.4em 0; background-color: #f8f9fa; }
         .flow-diagram { font-family: monospace; font-size: 0.6em; line-height: 1.4; }
         .step-box { background: #e3f2fd; border-left: 4px solid #2196F3; padding: 0.4em; margin: 0.3em 0; font-size: 0.9em; }
@@ -46,102 +56,138 @@
                 </aside>
             </section>
 
-            <!-- SLIDE 2: The Problem -->
+            <!-- SLIDE 2: Workflow Overview -->
             <section>
-                <h2>The Challenge: Multiple Developers</h2>
+                <h2>The Collaborative Git Workflow</h2>
                 <div style="font-size: 0.8em;">
-                    <p><strong>🤔 Questions to Answer:</strong></p>
-                    <ul>
-                        <li>How do multiple people edit the same codebase?</li>
-                        <li>How to coordinate changes without chaos?</li>
-                        <li>How to review quality before merging?</li>
-                        <li>How to preserve stable code while developing?</li>
-                        <li>How to contribute to projects you don't own?</li>
+                    <p><strong>🔄 Five Key Steps:</strong></p>
+                    <div style="display: flex; align-items: center; justify-content: center; margin: 2em 0;">
+                        <div style="text-align: center;">
+                            <div style="background: #2196F3; color: white; padding: 0.8em 1.2em; border-radius: 8px; margin: 0.5em; font-weight: bold;">
+                                1. Branch
+                            </div>
+                            <div style="font-size: 0.9em; color: #666;">Create isolated workspace</div>
+                        </div>
+                        <div style="font-size: 2em; margin: 0 0.5em;">→</div>
+                        <div style="text-align: center;">
+                            <div style="background: #4CAF50; color: white; padding: 0.8em 1.2em; border-radius: 8px; margin: 0.5em; font-weight: bold;">
+                                2. Commit
+                            </div>
+                            <div style="font-size: 0.9em; color: #666;">Save your changes</div>
+                        </div>
+                        <div style="font-size: 2em; margin: 0 0.5em;">→</div>
+                        <div style="text-align: center;">
+                            <div style="background: #FF9800; color: white; padding: 0.8em 1.2em; border-radius: 8px; margin: 0.5em; font-weight: bold;">
+                                3. Pull Request
+                            </div>
+                            <div style="font-size: 0.9em; color: #666;">Propose changes</div>
+                        </div>
+                        <div style="font-size: 2em; margin: 0 0.5em;">→</div>
+                        <div style="text-align: center;">
+                            <div style="background: #9C27B0; color: white; padding: 0.8em 1.2em; border-radius: 8px; margin: 0.5em; font-weight: bold;">
+                                4. Review
+                            </div>
+                            <div style="font-size: 0.9em; color: #666;">Discuss & improve</div>
+                        </div>
+                        <div style="font-size: 2em; margin: 0 0.5em;">→</div>
+                        <div style="text-align: center;">
+                            <div style="background: #8BC34A; color: white; padding: 0.8em 1.2em; border-radius: 8px; margin: 0.5em; font-weight: bold;">
+                                5. Merge
+                            </div>
+                            <div style="font-size: 0.9em; color: #666;">Integrate code</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 2em; background: #e3f2fd; border-left: 4px solid #2196F3; padding: 0.8em;">
+                        <strong>💡 Key Principle:</strong> Isolated development → Quality review → Safe integration
+                    </div>
+                </div>
+                <aside class="notes">
+                    The collaborative Git workflow has five key steps: Branch to create isolated workspace, Commit to save changes, 
+                    Pull Request to propose changes, Review to discuss and improve, and Merge to integrate. This workflow enables 
+                    quality code at scale by keeping work isolated until it's reviewed and ready.
+                </aside>
+            </section>
+
+            <!-- SLIDE 3: What is a Commit? -->
+            <section>
+                <h2><span style="background: #4CAF50; color: white; padding: 0.3em 0.6em; border-radius: 6px; font-size: 0.8em;">2. COMMIT</span> What is a Commit?</h2>
+                <div style="font-size: 0.75em;">
+                    <p style="margin-bottom: 1em;"><strong>A commit is a snapshot of your project at a point in time</strong></p>
+                    <ul style="line-height: 1.8; margin-bottom: 1.5em;">
+                        <li><strong>Saves your changes</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Records what you've done to the repository</span>
+                        </li>
+                        <li><strong>Has a unique ID</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Every commit gets a unique hash (like <code>a3f82b1</code>)</span>
+                        </li>
+                        <li><strong>Includes a message</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Describes what changed and why</span>
+                        </li>
+                        <li><strong>Points to parent</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Creates history chain back to first commit</span>
+                        </li>
+                        <li><strong>Permanent record</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Can't be changed once created (only added to)</span>
+                        </li>
                     </ul>
-                    <div style="margin-top: 1.5em; background: #e8f5e9; border-left: 4px solid #4CAF50; padding: 0.8em;">
-                        <strong>✅ The Solution: Git Workflows</strong><br>
-                        Branching, Pull Requests, Code Review, Merge Strategies
+                    <div style="background: #e8f5e9; border-left: 4px solid #4CAF50; padding: 0.8em;">
+                        <strong>💡 Key Concept:</strong> Think of commits as save points in a video game—you can always 
+                        go back to any commit to see what the project looked like at that moment.
                     </div>
                 </div>
                 <aside class="notes">
-                    When multiple people work on code, we need coordination. Git workflows solve this through branching 
-                    (isolated development), pull requests (propose changes), code review (quality gates), and merge strategies 
-                    (integrate safely).
+                    A commit is a snapshot of your project at a specific point in time. It saves your changes, 
+                    has a unique ID (hash), includes a descriptive message, points to its parent commit creating 
+                    a history chain, and is permanent. Think of commits as save points—you can always return to 
+                    any commit to see what the project looked like. Commits are the fundamental unit of version control.
                 </aside>
             </section>
 
-            <!-- SLIDE 3: Real-World Context -->
+            <!-- SLIDE 4: What is a Branch? -->
             <section>
-                <h2>This is How Professionals Work</h2>
-                <ul style="font-size: 0.75em;">
-                    <li><strong>🗺️ QGIS, PostGIS, GDAL</strong><br>
-                        Accept contributions using these exact workflows
-                    </li>
-                    <li><strong>💼 Professional Teams</strong><br>
-                        Google, Microsoft, Planet—all use this model
-                    </li>
-                    <li><strong>🌍 Open Source Contribution</strong><br>
-                        This is how you'll contribute to real projects
-                    </li>
-                    <li><strong>🎯 Employer Expectations</strong><br>
-                        These workflows are job requirements
-                    </li>
-                </ul>
-                <p style="text-align: center; margin-top: 1em; font-size: 0.9em;">
-                    <strong>Collaborative workflows enable quality code at scale</strong>
-                </p>
-                <aside class="notes">
-                    This isn't academic—this is exactly how QGIS accepts contributions, how professional teams work, 
-                    how you'll contribute to open source, and what employers expect you to know.
-                </aside>
-            </section>
-
-            <!-- SLIDE 4: Understanding Branches -->
-            <section>
-                <h2>Understanding Branches</h2>
-                <div class="diagram-box" style="padding: 1.5em;">
-                    <div style="font-family: sans-serif; font-size: 0.8em;">
-                        <div style="margin-bottom: 1.5em;">
-                            <div style="background: #4CAF50; color: white; padding: 0.5em 1em; border-radius: 4px; display: inline-block; margin-bottom: 0.3em;">
-                                <strong>main</strong> (stable)
-                            </div>
-                            <div style="background: #ddd; height: 4px; width: 100%; margin: 0.3em 0;"></div>
-                            <div style="font-size: 0.85em; color: #666;">● commit → ● commit → ● commit → ● commit → ● commit</div>
+                <h2><span style="background: #2196F3; color: white; padding: 0.3em 0.6em; border-radius: 6px; font-size: 0.8em;">1. BRANCH</span> What is a Branch?</h2>
+                <div style="font-size: 0.75em;">
+                    <div style="display: flex; gap: 2em; align-items: flex-start;">
+                        <!-- Left: Explanation -->
+                        <div style="flex: 1;">
+                            <p style="margin-bottom: 1em;"><strong>A branch is a pointer to a commit</strong></p>
+                            <ul style="line-height: 1.8;">
+                                <li><strong>Points to a specific commit</strong><br>
+                                    <span style="font-size: 0.9em; color: #666;">The "tip" of the branch</span>
+                                </li>
+                                <li><strong>Grows by adding commits</strong><br>
+                                    <span style="font-size: 0.9em; color: #666;">Each new commit moves the tip forward</span>
+                                </li>
+                                <li><strong>Diverges from main</strong><br>
+                                    <span style="font-size: 0.9em; color: #666;">Your changes isolated from stable code</span>
+                                </li>
+                                <li><strong>Linear history</strong><br>
+                                    <span style="font-size: 0.9em; color: #666;">Each commit points back to its parent, all the way to the first commit</span>
+                                </li>
+                            </ul>
                         </div>
-                        <div style="margin-bottom: 1.5em; margin-left: 3em;">
-                            <div style="background: #2196F3; color: white; padding: 0.5em 1em; border-radius: 4px; display: inline-block; margin-bottom: 0.3em;">
-                                <strong>feature/add-postgis</strong>
-                            </div>
-                            <div style="background: #2196F3; height: 4px; width: 80%; margin: 0.3em 0;"></div>
-                            <div style="font-size: 0.85em; color: #666;">↗ branch → ● work → ● work → ● work</div>
-                        </div>
-                        <div style="margin-left: 3em;">
-                            <div style="background: #FF9800; color: white; padding: 0.5em 1em; border-radius: 4px; display: inline-block; margin-bottom: 0.3em;">
-                                <strong>fix/bug</strong>
-                            </div>
-                            <div style="background: #FF9800; height: 4px; width: 70%; margin: 0.3em 0;"></div>
-                            <div style="font-size: 0.85em; color: #666;">↗ branch → ● fix → ● test</div>
+                        <!-- Right: Diagram -->
+                        <div style="flex: 1.2;">
+                            <img src="images/01 Branch-2 kopiera.png" alt="Git branch diagram showing main and feature branches diverging from common base" style="width: 100%; max-width: 500px;">
                         </div>
                     </div>
+                    <div style="background: #e3f2fd; border-left: 4px solid #2196F3; padding: 0.8em; margin-top: 1em;">
+                        <strong>💡 Key Insight:</strong> Branches let you work independently while main stays stable. 
+                        When ready, merge brings your changes back together.
+                    </div>
                 </div>
-                <ul style="font-size: 0.75em; margin-top: 1em;">
-                    <li><strong>Parallel timelines</strong> of code development</li>
-                    <li><strong>main</strong> = stable, production-ready</li>
-                    <li><strong>Feature branches</strong> = work in progress</li>
-                    <li>Branches are <strong>cheap and easy</strong>—use liberally!</li>
-                </ul>
-                <p style="text-align: center; margin-top: 0.8em; font-size: 0.8em;">
-                    <strong>💡 Branches let you experiment without breaking stable code</strong>
-                </p>
                 <aside class="notes">
-                    Branches are parallel timelines of development. Main branch stays stable while you experiment in feature branches. 
-                    Branches are cheap—create them freely. This is fundamental to professional collaboration.
+                    A branch is fundamentally a pointer to a commit—specifically, the tip of the branch. As you add commits, 
+                    the branch pointer moves forward. Branches diverge from main, creating isolated workspace for your changes. 
+                    Each commit has a linear history going back through its parents all the way to the first commit in the repository. 
+                    The diagram shows how main and feature branches diverge from a common base, develop independently, then can be 
+                    merged back together with a merge commit.
                 </aside>
             </section>
 
             <!-- SLIDE 5: Branch Naming Conventions -->
             <section>
-                <h2>Branch Naming Conventions</h2>
+                <h2><span style="background: #2196F3; color: white; padding: 0.3em 0.6em; border-radius: 6px; font-size: 0.8em;">1. BRANCH</span> Branch Naming Conventions</h2>
                 <div style="font-size: 0.75em;">
                     <div class="step-box">
                         <code>feature/add-postgis-layer</code><br>
@@ -154,10 +200,6 @@
                     <div class="step-box">
                         <code>docs/update-installation</code><br>
                         <span style="font-size: 0.9em;">Documentation updates</span>
-                    </div>
-                    <div class="step-box">
-                        <code>experiment/leaflet-alternative</code><br>
-                        <span style="font-size: 0.9em;">Trying new approaches</span>
                     </div>
                 </div>
                 <div style="background: #e3f2fd; border-left: 4px solid #2196F3; padding: 1em; margin-top: 1em; font-size: 0.75em;">
@@ -174,111 +216,94 @@
                 </aside>
             </section>
 
-            <!-- SLIDE 6: Fork-and-Pull-Request Model -->
+            <!-- SLIDE 6: Making Good Commits -->
             <section>
-                <h2>The Fork-and-Pull-Request Model</h2>
-                <div style="display: flex; align-items: flex-start; gap: 2em; margin-top: 1em;">
-                    <!-- Left column: Flow diagram -->
-                    <div style="flex: 1; font-size: 0.7em;">
-                        <div class="diagram-box" style="padding: 1em;">
-                            <div style="line-height: 1.8;">
-                                <div style="background: #4CAF50; color: white; padding: 0.5em 1em; border-radius: 4px; margin-bottom: 0.5em;">
-                                    <strong>Original Repository</strong><br>
-                                    <span style="font-size: 0.85em;">github.com/qgis/QGIS</span>
-                                </div>
-                                <div style="padding-left: 1em; font-size: 0.9em; margin: 0.3em 0;">
-                                    ↓ <strong>1. Fork</strong>
-                                </div>
-                                <div style="background: #2196F3; color: white; padding: 0.5em 1em; border-radius: 4px; margin: 0.3em 0;">
-                                    <strong>Your Fork</strong><br>
-                                    <span style="font-size: 0.85em;">yourusername/QGIS</span>
-                                </div>
-                                <div style="padding-left: 1em; font-size: 0.9em; margin: 0.3em 0;">
-                                    ↓ <strong>2-4. Edit (web UI)</strong>
-                                </div>
-                                <div style="background: #FF9800; color: white; padding: 0.5em 1em; border-radius: 4px; margin: 0.3em 0;">
-                                    <strong>Pull Request</strong>
-                                </div>
-                                <div style="padding-left: 1em; font-size: 0.9em; margin: 0.3em 0;">
-                                    ↓ <strong>5-6. Review</strong>
-                                </div>
-                                <div style="background: #8BC34A; color: white; padding: 0.5em 1em; border-radius: 4px; margin-top: 0.3em;">
-                                    <strong>✨ Merged!</strong>
-                                </div>
+                <h2><span style="background: #4CAF50; color: white; padding: 0.3em 0.6em; border-radius: 6px; font-size: 0.8em;">2. COMMIT</span> Making Good Commits</h2>
+                <div style="font-size: 0.75em;">
+                    <p><strong>A commit is a snapshot of your work</strong></p>
+                    <div style="display: flex; gap: 2em; margin-top: 1em;">
+                        <div style="flex: 1;">
+                            <h3 style="font-size: 1.1em;">Good Commit Messages:</h3>
+                            <div class="good-comment">
+                                ✅ <code>Add support for GeoJSON export</code><br>
+                                <span style="font-size: 0.9em;">Clear, specific, action-oriented</span>
+                            </div>
+                            <div class="good-comment">
+                                ✅ <code>Fix coordinate precision bug in buffer calculation</code><br>
+                                <span style="font-size: 0.9em;">Explains what and why</span>
+                            </div>
+                        </div>
+                        <div style="flex: 1;">
+                            <h3 style="font-size: 1.1em;">Poor Commit Messages:</h3>
+                            <div class="bad-comment">
+                                ❌ <code>Update code</code><br>
+                                <span style="font-size: 0.9em;">Too vague</span>
+                            </div>
+                            <div class="bad-comment">
+                                ❌ <code>Fix bug</code><br>
+                                <span style="font-size: 0.9em;">Which bug?</span>
+                            </div>
+                            <div class="bad-comment">
+                                ❌ <code>WIP</code><br>
+                                <span style="font-size: 0.9em;">Not descriptive</span>
                             </div>
                         </div>
                     </div>
-                    <!-- Right column: Steps detail -->
-                    <div style="flex: 1; font-size: 0.65em;">
-                        <h3 style="margin-top: 0; font-size: 1.2em;">The Steps:</h3>
-                        <ol style="line-height: 1.6; margin: 0; padding-left: 1.5em;">
-                            <li><strong>Fork:</strong> Click "Fork" button</li>
-                            <li><strong>Branch:</strong> Create feature branch</li>
-                            <li><strong>Edit:</strong> Make changes in web UI</li>
-                            <li><strong>Commit:</strong> Save with message</li>
-                            <li><strong>PR:</strong> Create pull request</li>
-                            <li><strong>Review:</strong> Discuss & iterate</li>
-                            <li><strong>Merge:</strong> Code accepted! 🎉</li>
-                        </ol>
-                        <div style="margin-top: 1em; padding: 0.8em; background: #e3f2fd; border-radius: 4px;">
-                            <strong>Key Point:</strong> All done through GitHub's web interface—no command line required!
-                        </div>
+                    <div style="background: #e8f5e9; border-left: 4px solid #4CAF50; padding: 0.8em; margin-top: 1em;">
+                        <strong>💡 Commit Best Practices:</strong><br>
+                        • Make atomic commits (one logical change)<br>
+                        • Commit often (small, focused changes)<br>
+                        • Write present-tense messages ("Add" not "Added")<br>
+                        • Think: "This commit will..." [your message]
                     </div>
                 </div>
-                <p style="text-align: center; font-size: 0.7em; margin-top: 0.5em;">
-                    <strong>This is how you contribute to projects you don't have write access to</strong>
-                </p>
                 <aside class="notes">
-                    The fork-and-PR model is fundamental to open source. You fork to create your personal copy on GitHub. 
-                    Then work entirely in the web UI—create branch, edit files, commit changes. Create a pull request to propose 
-                    changes to the original repo. After code review and any iterations, maintainer merges and your code is in QGIS. 
-                    All done through GitHub's web interface.
+                    Commits are snapshots of your work. Good commit messages are clear, specific, and action-oriented. 
+                    They explain what changed and why. Make atomic commits—one logical change per commit. Commit often with 
+                    small, focused changes. Write in present tense as if saying "This commit will add support for GeoJSON export." 
+                    Good commits make it easy to understand project history and find specific changes.
                 </aside>
             </section>
 
-            <!-- SLIDE 7: Step-by-Step Fork-and-PR (Web UI) -->
+            <!-- SLIDE 7: What is a Pull Request? -->
             <section>
-                <h2>Fork-and-PR: Step by Step (Web UI)</h2>
-                <div style="font-size: 0.68em;">
-                    <div class="step-box">
-                        <strong>1. Fork:</strong> Click "Fork" button (top-right) on GitHub repository<br>
-                        <span style="font-style: italic;">Creates your personal copy at github.com/yourusername/project-name</span>
-                    </div>
-                    <div class="step-box">
-                        <strong>2. Create Branch:</strong> In your fork, click branch dropdown → type branch name → create<br>
-                        <span style="font-style: italic;">Example: <code>feature/improve-documentation</code></span>
-                    </div>
-                    <div class="step-box">
-                        <strong>3. Edit Files:</strong> Navigate to file → click pencil icon (✏️) → make changes<br>
-                        <span style="font-style: italic;">GitHub's web editor lets you edit directly in browser</span>
-                    </div>
-                    <div class="step-box">
-                        <strong>4. Commit Changes:</strong> At bottom of editor:<br>
-                        • Write commit message: "Improve installation documentation clarity"<br>
-                        • Select "Commit directly to feature/improve-documentation branch"<br>
-                        • Click "Commit changes"
-                    </div>
-                    <div class="step-box">
-                        <strong>5. Create Pull Request:</strong> GitHub shows banner "Compare & pull request" → click it<br>
-                        <span style="font-style: italic;">Or go to original repo → Pull Requests → New Pull Request</span>
-                    </div>
-                    <div class="step-box">
-                        <strong>6. Code Review:</strong> Maintainers review, leave comments<br>
-                        <strong>7. Iterate:</strong> Make more edits via web UI if needed<br>
-                        <strong>8. Merge:</strong> Maintainer clicks "Merge pull request" → Your code is in!
+                <h2><span style="background: #FF9800; color: white; padding: 0.3em 0.6em; border-radius: 6px; font-size: 0.8em;">3. PULL REQUEST</span> What is a Pull Request?</h2>
+                <div style="font-size: 0.75em;">
+                    <p style="margin-bottom: 1em;"><strong>A pull request (PR) is a proposal to merge your branch into another branch</strong></p>
+                    <ul style="line-height: 1.8; margin-bottom: 1.5em;">
+                        <li><strong>Proposes changes</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">"I've finished my work, please review and merge it"</span>
+                        </li>
+                        <li><strong>Opens discussion</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Team can review, comment, and suggest improvements</span>
+                        </li>
+                        <li><strong>Shows differences</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">GitHub displays exactly what changed between branches</span>
+                        </li>
+                        <li><strong>Tracks conversation</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">All feedback, questions, and decisions in one place</span>
+                        </li>
+                        <li><strong>Gateway to merge</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">After approval, changes can be merged into main branch</span>
+                        </li>
+                    </ul>
+                    <div style="background: #fff3e0; border-left: 4px solid #FF9800; padding: 0.8em;">
+                        <strong>💡 Think of it like:</strong> You wrote a paper and are asking your professor to review it 
+                        before including it in the final publication. The PR is your submission + their feedback.
                     </div>
                 </div>
                 <aside class="notes">
-                    The complete web UI workflow: Fork on GitHub creates your copy. Create branch in your fork. Edit files using 
-                    the web editor—just click the pencil icon. Commit your changes with a message. Create pull request—GitHub 
-                    shows you a convenient banner. Respond to code review by making more edits. When approved, maintainer merges 
-                    and your code is in the project. All of this without ever leaving the browser.
+                    A pull request is a proposal to merge your branch into another branch (usually main). It's how you say 
+                    "I've finished my work, please review and merge it." PRs open discussion where team members can review, 
+                    comment, and suggest improvements. GitHub shows exactly what changed. All feedback and decisions are 
+                    tracked in one place. After approval, changes merge into the main branch. Think of it like submitting 
+                    a paper for review before final publication.
                 </aside>
             </section>
 
             <!-- SLIDE 8: Anatomy of a Good PR -->
             <section>
-                <h2>Anatomy of a Good Pull Request</h2>
+                <h2><span style="background: #FF9800; color: white; padding: 0.3em 0.6em; border-radius: 6px; font-size: 0.8em;">3. PULL REQUEST</span> Anatomy of a Good Pull Request</h2>
                 <div style="font-size: 0.7em;">
                     <div class="good-comment">
                         <strong>✅ Clear Title:</strong><br>
@@ -315,7 +340,7 @@ Users requested ability to export for Excel (#42)
 
             <!-- SLIDE 9: PR Best Practices -->
             <section>
-                <h2>Pull Request Best Practices</h2>
+                <h2><span style="background: #FF9800; color: white; padding: 0.3em 0.6em; border-radius: 6px; font-size: 0.8em;">3. PULL REQUEST</span> Pull Request Best Practices</h2>
                 <ul style="font-size: 0.75em;">
                     <li><strong>📝 Clear Title:</strong> Descriptive and specific<br>
                         <span style="font-size: 0.9em;">Good: "Add GeoJSON export" | Bad: "Update code"</span>
@@ -339,9 +364,65 @@ Users requested ability to export for Excel (#42)
                 </aside>
             </section>
 
-            <!-- SLIDE 10: Code Review - As Reviewer -->
+            <!-- SLIDE 10: Why Review? -->
             <section>
-                <h2>Code Review Best Practices</h2>
+                <h2><span style="background: #9C27B0; color: white; padding: 0.3em 0.6em; border-radius: 6px; font-size: 0.8em;">4. REVIEW</span> Why Review My Pull Request?</h2>
+                <div style="font-size: 0.75em;">
+                    <p style="margin-bottom: 1em;"><strong>Even solo projects benefit from the review process</strong></p>
+                    <div style="display: flex; gap: 2em;">
+                        <div style="flex: 1;">
+                            <h3 style="font-size: 1.1em; margin-bottom: 0.5em;">For Solo Projects:</h3>
+                            <ul style="line-height: 1.7;">
+                                <li><strong>Catch mistakes</strong><br>
+                                    <span style="font-size: 0.9em; color: #666;">Fresh eyes spot bugs you missed</span>
+                                </li>
+                                <li><strong>Improve code quality</strong><br>
+                                    <span style="font-size: 0.9em; color: #666;">Get suggestions for better approaches</span>
+                                </li>
+                                <li><strong>Learn best practices</strong><br>
+                                    <span style="font-size: 0.9em; color: #666;">Reviewers share their expertise</span>
+                                </li>
+                                <li><strong>Document decisions</strong><br>
+                                    <span style="font-size: 0.9em; color: #666;">PR discussion explains "why"</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="flex: 1;">
+                            <h3 style="font-size: 1.1em; margin-bottom: 0.5em;">For Team Projects:</h3>
+                            <ul style="line-height: 1.7;">
+                                <li><strong>Keep everyone aligned</strong><br>
+                                    <span style="font-size: 0.9em; color: #666;">Team knows where project is going</span>
+                                </li>
+                                <li><strong>Maintain consistency</strong><br>
+                                    <span style="font-size: 0.9em; color: #666;">Naming conventions, code style</span>
+                                </li>
+                                <li><strong>Share knowledge</strong><br>
+                                    <span style="font-size: 0.9em; color: #666;">Everyone learns how the code works</span>
+                                </li>
+                                <li><strong>Prevent conflicts</strong><br>
+                                    <span style="font-size: 0.9em; color: #666;">Catch issues before they're merged</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="background: #f3e5f5; border-left: 4px solid #9C27B0; padding: 0.8em; margin-top: 1em;">
+                        <strong>💡 Key Insight:</strong> Code review might seem like overkill for solo work, but it's a 
+                        professional habit that improves code quality and catches mistakes. For teams, it's essential 
+                        for coordination, consistency, and shared understanding.
+                    </div>
+                </div>
+                <aside class="notes">
+                    Code review benefits everyone. For solo projects: fresh eyes catch mistakes, you get suggestions for 
+                    better approaches, learn best practices, and PR discussions document why decisions were made. For teams: 
+                    keeps everyone aligned on project direction, maintains consistency in naming and style, shares knowledge 
+                    about how code works, and catches issues before merge. While it might seem like overkill for solo work, 
+                    it's a professional habit that significantly improves code quality.
+                </aside>
+            </section>
+
+            <!-- SLIDE 11: Code Review - As Reviewer -->
+            <section>
+                <h2><span style="background: #9C27B0; color: white; padding: 0.3em 0.6em; border-radius: 6px; font-size: 0.8em;">4. REVIEW</span> Code Review Best Practices</h2>
                 <h3 style="font-size: 1.1em;">As a Reviewer:</h3>
                 <ul style="font-size: 0.75em;">
                     <li>✅ Be respectful and constructive</li>
@@ -367,9 +448,9 @@ Users requested ability to export for Excel (#42)
                 </aside>
             </section>
 
-            <!-- SLIDE 11: Code Review - As Contributor -->
+            <!-- SLIDE 12: Code Review - As Contributor -->
             <section>
-                <h2>Receiving Code Review</h2>
+                <h2><span style="background: #9C27B0; color: white; padding: 0.3em 0.6em; border-radius: 6px; font-size: 0.8em;">4. REVIEW</span> Receiving Code Review</h2>
                 <h3 style="font-size: 1.1em;">As a Contributor:</h3>
                 <ul style="font-size: 0.75em;">
                     <li>✅ Don't take feedback personally</li>
@@ -391,9 +472,75 @@ Users requested ability to export for Excel (#42)
                 </aside>
             </section>
 
-            <!-- SLIDE 12: Merge Conflicts - What Are They? -->
+            <!-- SLIDE 13: What is Merging? -->
             <section>
-                <h2>Understanding Merge Conflicts</h2>
+                <h2><span style="background: #8BC34A; color: white; padding: 0.3em 0.6em; border-radius: 6px; font-size: 0.8em;">5. MERGE</span> What is Merging?</h2>
+                <div style="font-size: 0.75em;">
+                    <div style="display: flex; gap: 2em; align-items: flex-start; margin-bottom: 1em;">
+                        <div style="flex: 1;">
+                            <p style="margin-bottom: 1em;"><strong>Merging integrates changes from one branch into another</strong></p>
+                            <ul style="line-height: 1.8; margin-bottom: 1em;">
+                                <li><strong>Combines work</strong><br>
+                                    <span style="font-size: 0.9em; color: #666;">Brings your feature branch changes into main</span>
+                                </li>
+                                <li><strong>Preserves history</strong><br>
+                                    <span style="font-size: 0.9em; color: #666;">Both branches' commits remain in the history</span>
+                                </li>
+                                <li><strong>Creates merge commit</strong><br>
+                                    <span style="font-size: 0.9em; color: #666;">Special commit that joins two branches together</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="flex: 1;">
+                            <img src="images/02 Branch-1 kopiera.png" alt="Git merge diagram showing branches merging back together" style="width: 100%; max-width: 450px;">
+                        </div>
+                    </div>
+                    
+                    <h3 style="font-size: 1.1em; margin: 1em 0 0.5em 0;">Two Possible Outcomes:</h3>
+                    <div style="display: flex; gap: 1.5em;">
+                        <div style="flex: 1;">
+                            <div style="background: #e8f5e9; border-left: 4px solid #4CAF50; padding: 0.8em; margin-bottom: 1em;">
+                                <strong>✅ Clean Merge (No Conflicts)</strong>
+                            </div>
+                            <ul style="line-height: 1.6; font-size: 0.95em;">
+                                <li>Git automatically combines changes</li>
+                                <li>No overlapping edits</li>
+                                <li>Different files modified</li>
+                                <li>Different parts of same file</li>
+                                <li><strong>Result:</strong> Instant merge ✨</li>
+                            </ul>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 0.8em; margin-bottom: 1em;">
+                                <strong>⚠️ Merge Conflict</strong>
+                            </div>
+                            <ul style="line-height: 1.6; font-size: 0.95em;">
+                                <li>Both branches changed same lines</li>
+                                <li>Git can't automatically decide</li>
+                                <li>Conflicting edits to code</li>
+                                <li>Human decision required</li>
+                                <li><strong>Result:</strong> Manual resolution needed 🛠️</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #e8f5e9; border-left: 4px solid #8BC34A; padding: 0.8em; margin-top: 1em;">
+                        <strong>💡 Why conflicts happen:</strong> Two people edited the same lines in different ways. 
+                        Git doesn't know which version to keep, so it asks you to decide. This is completely normal!
+                    </div>
+                </div>
+                <aside class="notes">
+                    Merging integrates changes from one branch into another—typically your feature branch into main. 
+                    It combines work, preserves history from both branches, and creates a special merge commit joining them. 
+                    Two possible outcomes: Clean merge when Git can automatically combine changes (different files or different 
+                    parts of same file), or merge conflict when both branches changed the same lines. Conflicts happen because 
+                    Git can't decide which version to keep—human decision required. This is completely normal in collaborative work!
+                </aside>
+            </section>
+
+            <!-- SLIDE 14: Merge Conflicts - What Are They? -->
+            <section>
+                <h2><span style="background: #8BC34A; color: white; padding: 0.3em 0.6em; border-radius: 6px; font-size: 0.8em;">5. MERGE</span> Understanding Merge Conflicts</h2>
                 <div style="font-size: 0.75em;">
                     <p><strong>🤔 What Are Merge Conflicts?</strong></p>
                     <ul>
@@ -414,9 +561,9 @@ Users requested ability to export for Excel (#42)
                 </aside>
             </section>
 
-            <!-- SLIDE 13: Resolving Merge Conflicts (Web UI) -->
+            <!-- SLIDE 15: Resolving Merge Conflicts (Web UI) -->
             <section>
-                <h2>Resolving Merge Conflicts (Web UI)</h2>
+                <h2><span style="background: #8BC34A; color: white; padding: 0.3em 0.6em; border-radius: 6px; font-size: 0.8em;">5. MERGE</span> Resolving Merge Conflicts (Web UI)</h2>
                 <div style="font-size: 0.68em;">
                     <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 0.8em; margin-bottom: 0.8em;">
                         <strong>⚠️ When Conflicts Occur:</strong> GitHub shows "This branch has conflicts that must be resolved"
@@ -452,9 +599,9 @@ result = compute_spatial_distance(point1, point2)
                 </aside>
             </section>
 
-            <!-- SLIDE 14: Preventing Conflicts -->
+            <!-- SLIDE 16: Preventing Conflicts -->
             <section>
-                <h2>Preventing Merge Conflicts</h2>
+                <h2><span style="background: #8BC34A; color: white; padding: 0.3em 0.6em; border-radius: 6px; font-size: 0.8em;">5. MERGE</span> Preventing Merge Conflicts</h2>
                 <ul style="font-size: 0.8em;">
                     <li><strong>🔄 Sync with main frequently</strong><br>
                         Don't let your branch drift too far
@@ -481,43 +628,42 @@ result = compute_spatial_distance(point1, point2)
                 </aside>
             </section>
 
-            <!-- SLIDE 15: M1A4 Assignment Overview -->
+            <!-- SLIDE 17: M1A4 Assignment Overview -->
             <section>
                 <h2>Assignment: M1A4</h2>
-                <h3 style="font-size: 1.1em;">Practice Complete Fork-and-PR Workflow (Web UI Only)</h3>
+                <h3 style="font-size: 1.1em; margin-bottom: 0.5em;">Practice Collaborative Workflows</h3>
                 <div style="font-size: 0.75em;">
-                    <p><strong>What You'll Do (All in GitHub Web UI):</strong></p>
-                    <ul>
-                        <li>Fork a partner's repository (or provided exercise repo)</li>
-                        <li>Create feature branch using branch dropdown</li>
-                        <li>Make meaningful GIS-related changes using web editor</li>
-                        <li>Write professional pull request with good description</li>
-                        <li>Review your partner's PR with constructive feedback</li>
-                        <li>Resolve any merge conflicts using web conflict editor</li>
+                    <p style="margin: 0.3em 0;"><strong>What You'll Do (All in GitHub Web UI):</strong></p>
+                    <ul style="margin: 0.3em 0;">
+                        <li>Work with a partner on a shared repository</li>
+                        <li>Create feature branches for your changes</li>
+                        <li>Make meaningful GIS-related edits using web editor</li>
+                        <li>Create pull requests with clear descriptions</li>
+                        <li>Review your partner's pull requests with constructive feedback</li>
+                        <li><strong>Experience and resolve merge conflicts together</strong></li>
                     </ul>
-                    <p style="margin-top: 1em;"><strong>Skills Practiced (100% Web UI):</strong></p>
-                    <ul>
-                        <li>✅ Forking repositories</li>
-                        <li>✅ Creating and switching branches</li>
-                        <li>✅ Editing files in web editor</li>
-                        <li>✅ PR creation with clear descriptions</li>
-                        <li>✅ Code review (giving and receiving)</li>
-                        <li>✅ Web-based conflict resolution</li>
-                        <li>✅ Professional Git communication</li>
+                    <p style="margin: 0.5em 0 0.3em 0;"><strong>Learning Goals (Real Collaboration!):</strong></p>
+                    <ul style="margin: 0.3em 0;">
+                        <li>🤝 <strong>Collaborate effectively</strong> - coordinate changes with a teammate</li>
+                        <li>🌿 <strong>Branch management</strong> - create and work in isolated branches</li>
+                        <li>💬 <strong>Communication</strong> - write clear PRs and give helpful feedback</li>
+                        <li>🔀 <strong>Merging experience</strong> - integrate changes and handle conflicts</li>
+                        <li>🛠️ <strong>Conflict resolution</strong> - resolve overlapping edits together</li>
                     </ul>
                 </div>
-                <p style="text-align: center; margin-top: 0.8em; font-size: 0.85em; background: #e3f2fd; padding: 0.5em; border-radius: 4px;">
-                    <strong>🎯 No command line required—all done through GitHub's web interface!</strong>
+                <p style="text-align: center; margin-top: 0.5em; font-size: 0.85em; background: #e8f5e9; padding: 0.5em; border-radius: 4px;">
+                    <strong>🎯 Focus: Learn collaboration, merging, and conflict resolution through hands-on practice!</strong>
                 </p>
                 <aside class="notes">
-                    M1A4 lets you practice the complete workflow using only GitHub's web interface. No command line, no local Git—
-                    everything in the browser. You'll fork, create branches, edit files, create PRs, review code, and resolve conflicts. 
-                    By the end, you'll know professional Git workflows that work everywhere—the same patterns used at companies 
-                    and open source projects worldwide, whether you use web UI or command line later.
+                    M1A4 focuses on collaborative workflows—working with a partner to experience real team dynamics. You'll 
+                    create branches, make changes, create pull requests, and review each other's work. The key learning happens 
+                    when you merge: you'll experience both clean merges and conflicts, learning to resolve overlapping edits 
+                    together. This mirrors real professional development where coordination and conflict resolution are essential 
+                    skills. All done in GitHub's web interface—no command line needed.
                 </aside>
             </section>
 
-            <!-- SLIDE 16: Resources -->
+            <!-- SLIDE 14: Resources -->
             <section>
                 <h2>Essential Resources</h2>
                 <div style="font-size: 0.75em; display: grid; grid-template-columns: 1fr 1fr; gap: 1em;">
@@ -562,7 +708,7 @@ result = compute_spatial_distance(point1, point2)
                 </aside>
             </section>
 
-            <!-- SLIDE 17: Summary -->
+            <!-- SLIDE 15: Summary -->
             <section>
                 <h2>Key Takeaways</h2>
                 <ul style="font-size: 0.8em;">
@@ -603,7 +749,7 @@ result = compute_spatial_distance(point1, point2)
             hash: true,
             controls: true,
             progress: true,
-            center: true,
+            center: false,
             transition: 'slide',
             plugins: [ RevealNotes ],
             width: 1280,
@@ -613,4 +759,6 @@ result = compute_spatial_distance(point1, point2)
     </script>
 </body>
 </html>
+
+
 
