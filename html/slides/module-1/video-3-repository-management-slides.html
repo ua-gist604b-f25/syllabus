@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repository Management - GIST 604B</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css">
+    <style>
+        .reveal h1 { font-size: 1.625em; }
+        .reveal h2 { font-size: 1.17em; }
+        .reveal h3 { font-size: 0.91em; }
+        .reveal ul { font-size: 0.8em; }
+        .reveal li { margin: 0.4em 0; }
+        .reveal pre { font-size: 0.6em; }
+        .reveal code { font-family: 'Courier New', monospace; }
+        .reveal section { text-align: left; }
+        .reveal h1, .reveal h2, .reveal h3 { text-align: center; }
+        .diagram-box { border: 2px solid #333; padding: 1em; margin: 1em 0; background-color: #f5f5f5; }
+        .file-tree { font-family: 'Courier New', monospace; font-size: 0.75em; line-height: 1.4; white-space: pre; }
+        .good-example { border-left: 4px solid #4CAF50; background-color: #e8f5e9; padding: 0.5em; }
+        .bad-example { border-left: 4px solid #f44336; background-color: #ffebee; padding: 0.5em; }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- SLIDE 1: Title -->
+            <section>
+                <h1>GitHub Repository Management</h1>
+                <h3>Module 1 - GIST 604B</h3>
+                <p style="text-align: center;">Building Professional Portfolios Through Proper Repository Structure</p>
+                <aside class="notes">
+                    Today we're covering professional GitHub repository management. This is about building your portfolio 
+                    and showing professionalism through proper repository structure and documentation.
+                </aside>
+            </section>
+
+            <!-- SLIDE 2: Why This Matters -->
+            <section>
+                <h2>Why Repository Management Matters</h2>
+                <ul style="font-size: 0.75em;">
+                    <li><strong>💼 Your GitHub is Your Portfolio</strong><br>
+                        First impression for employers and collaborators
+                    </li>
+                    <li><strong>🏢 Real-World Statement</strong><br>
+                        "I've hired people based on their GitHub" - Common from tech managers
+                    </li>
+                    <li><strong>⏰ Time Saver</strong><br>
+                        Good documentation reduces support burden
+                    </li>
+                    <li><strong>🙏 Future-You Will Thank You</strong><br>
+                        6 months later, you'll appreciate clear organization
+                    </li>
+                </ul>
+                <p style="text-align: center; margin-top: 1em;"><strong>Repository management = Professional communication</strong></p>
+                <aside class="notes">
+                    Your GitHub profile is your public portfolio. Repositories are often the first impression for employers. 
+                    I've heard countless tech managers say "I've hired people based on their GitHub." Good organization shows 
+                    professionalism and attention to detail.
+                </aside>
+            </section>
+
+            <!-- SLIDE 3: Essential Components Overview -->
+            <section>
+                <h2>Essential Repository Components</h2>
+                <div class="diagram-box" style="font-size: 0.75em;">
+                    <div class="file-tree">
+project-name/
+├── README.md          ← Your repo's front door
+├── LICENSE            ← Legal foundation
+├── .gitignore         ← Keep it clean
+├── data/              ← Sample data
+├── src/               ← Source code
+├── docs/              ← Documentation
+├── tests/             ← Test files
+└── examples/          ← Usage examples
+                    </div>
+                </div>
+                <p style="text-align: center; font-size: 0.8em;"><strong>README, LICENSE, .gitignore + organized directories = Professional repository</strong></p>
+                <aside class="notes">
+                    Every professional repository needs essential components: README for documentation, LICENSE for legal clarity, 
+                    .gitignore to keep things clean, and proper directory structure to organize your work. We'll dive into each of these.
+                </aside>
+            </section>
+
+            <!-- SLIDE 4: README - Front Door -->
+            <section>
+                <h2>README.md - Your Repository's Front Door</h2>
+                <h3 style="font-size: 1.1em;">Must Include:</h3>
+                <ul style="font-size: 0.75em;">
+                    <li>✅ Project title and brief description</li>
+                    <li>✅ What problem it solves</li>
+                    <li>✅ How to install/use it</li>
+                    <li>✅ Basic examples</li>
+                    <li>✅ How to contribute (for public projects)</li>
+                    <li>✅ Contact information</li>
+                </ul>
+                <p style="margin-top: 0.5em; text-align: center; font-size: 0.8em;">
+                    <strong>🔗 Live Examples:</strong><br>
+                    <a href="https://github.com/Leaflet/Leaflet" target="_blank">Leaflet</a> | 
+                    <a href="https://github.com/OSGeo/gdal" target="_blank">GDAL</a> | 
+                    <a href="https://github.com/geopandas/geopandas" target="_blank">GeoPandas</a>
+                </p>
+                <aside class="notes">
+                    README.md is the first thing people see. It's displayed on your repository homepage. A good README should 
+                    answer: what is this, why does it exist, how do I use it? Let me show you some excellent examples from 
+                    major GIS projects.
+                </aside>
+            </section>
+
+            <!-- SLIDE 5: Good vs Bad README -->
+            <section>
+                <h2>README Examples: Good vs Bad</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; font-size: 0.65em;">
+                    <div class="bad-example">
+                        <strong>❌ Bad Example:</strong>
+                        <pre style="margin: 0.5em 0;">
+# Project 2
+
+My code for class
+
+`python main.py`
+                        </pre>
+                        <p style="margin: 0.5em 0 0 0; font-style: italic;">
+                            Too vague, no context, no explanation
+                        </p>
+                    </div>
+                    <div class="good-example">
+                        <strong>✅ Good Example:</strong>
+                        <pre style="margin: 0.5em 0;">
+# Earthquake Mapper
+
+Interactive Leaflet map visualizing 
+USGS earthquake data from the past 
+30 days.
+
+## Features
+- Real-time data from USGS API
+- Circle markers sized by magnitude
+- Popup info for each earthquake
+
+## Installation
+```bash
+pip install -r requirements.txt
+python app.py
+```
+
+## Usage
+Visit http://localhost:5000
+                        </pre>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Look at the difference. The bad example tells you nothing. The good example immediately tells you what it 
+                    does, why it's useful, how to install it, and how to use it. Which repository would you want to work with?
+                </aside>
+            </section>
+
+            <!-- SLIDE 6: LICENSE -->
+            <section>
+                <h2>LICENSE - Legal Foundation</h2>
+                <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 0.8em; font-size: 0.75em;">
+                    <p style="margin: 0;"><strong>⚠️ Without a license = All Rights Reserved</strong></p>
+                    <p style="margin: 0.3em 0 0 0; font-style: italic;">
+                        Nobody can legally use, modify, or distribute (even if public!)
+                    </p>
+                </div>
+                <h3 style="font-size: 1.1em; margin-top: 1em;">Common Choices:</h3>
+                <ul style="font-size: 0.75em;">
+                    <li><strong>MIT</strong> - Permissive, minimal restrictions, maximum adoption</li>
+                    <li><strong>GPL v3</strong> - Copyleft, modifications must remain open</li>
+                    <li><strong>Apache 2.0</strong> - Patent protection, enterprise-friendly</li>
+                </ul>
+                <p style="margin-top: 0.8em; text-align: center; font-size: 0.75em;">
+                    <strong>🔗 Add via GitHub:</strong> <a href="https://choosealicense.com" target="_blank">choosealicense.com</a>
+                </p>
+                <aside class="notes">
+                    Without a license, your code is "All Rights Reserved" by default—nobody can legally use it! Always add a license. 
+                    MIT is great for maximum adoption, GPL ensures derivatives stay open, Apache 2.0 adds patent protection. 
+                    We'll demo adding a license via GitHub's interface.
+                </aside>
+            </section>
+
+            <!-- SLIDE 7: .gitignore -->
+            <section>
+                <h2>.gitignore - Keep Repositories Clean</h2>
+                <h3 style="font-size: 1.1em;">What to Ignore:</h3>
+                <div style="font-size: 0.7em; display: grid; grid-template-columns: 1fr 1fr; gap: 1em;">
+                    <div>
+                        <strong>Operating System Files:</strong>
+                        <pre style="margin: 0.3em 0;">.DS_Store
+Thumbs.db
+desktop.ini</pre>
+                        <strong>IDE Configurations:</strong>
+                        <pre style="margin: 0.3em 0;">.vscode/
+.idea/
+*.swp</pre>
+                    </div>
+                    <div>
+                        <strong>Dependencies:</strong>
+                        <pre style="margin: 0.3em 0;">node_modules/
+venv/
+__pycache__/</pre>
+                        <strong>Secrets & Configs:</strong>
+                        <pre style="margin: 0.3em 0;">.env
+config.local.json
+*.key</pre>
+                    </div>
+                </div>
+                <p style="margin-top: 0.8em; text-align: center; font-size: 0.75em;">
+                    <strong>🔗 Templates:</strong> <a href="https://github.com/github/gitignore" target="_blank">github.com/github/gitignore</a>
+                </p>
+                <aside class="notes">
+                    .gitignore tells Git which files to ignore. You don't want OS files, IDE configs, dependencies, or secrets 
+                    in your repository. GitHub provides templates for every language. We'll use the Python template for our projects.
+                </aside>
+            </section>
+
+            <!-- SLIDE 8: Directory Structure -->
+            <section>
+                <h2>Professional Directory Structure</h2>
+                <div class="diagram-box" style="font-size: 0.65em; margin-top: 0.5em; padding: 0.8em;">
+                    <div class="file-tree">
+spatial-analysis-toolkit/
+├── README.md                    ← Project overview
+├── LICENSE                      ← Legal terms
+├── .gitignore                   ← Ignore patterns
+├── requirements.txt             ← Python dependencies
+├── <strong>src/</strong>                          ← Source code
+│   ├── __init__.py
+│   ├── spatial_utils.py
+│   └── visualization.py
+├── <strong>data/</strong>                         ← Sample data
+│   ├── README.md                ← Data documentation
+│   └── sample_points.geojson
+├── <strong>docs/</strong>                         ← Documentation
+│   ├── installation.md
+│   └── usage.md
+├── <strong>tests/</strong>                        ← Unit tests
+│   └── test_spatial_utils.py
+└── <strong>examples/</strong>                     ← Usage examples
+    └── basic_analysis.ipynb
+                    </div>
+                </div>
+                <p style="text-align: center; font-size: 0.7em; margin-top: 0.5em;"><strong>Consistency helps everyone (including future-you)</strong></p>
+                <aside class="notes">
+                    Organize your repository logically. Source code in src/, data in data/, docs in docs/, tests in tests/, 
+                    examples in examples/. This structure is immediately recognizable to other developers.
+                </aside>
+            </section>
+
+            <!-- SLIDE 9: Markdown Basics -->
+            <section>
+                <h2>Markdown Basics for Documentation</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; font-size: 0.65em;">
+                    <div>
+                        <strong>Markdown:</strong>
+                        <pre># Heading 1
+## Heading 2
+### Heading 3
+
+**bold** and *italic*
+
+- List item 1
+- List item 2
+
+1. Numbered item
+2. Another item
+
+[Link text](url)
+![Image](image-url)
+
+```python
+code block
+```</pre>
+                    </div>
+                    <div>
+                        <strong>Renders as:</strong>
+                        <h1 style="font-size: 1.5em;">Heading 1</h1>
+                        <h2 style="font-size: 1.2em;">Heading 2</h2>
+                        <h3 style="font-size: 1em;">Heading 3</h3>
+                        <p><strong>bold</strong> and <em>italic</em></p>
+                        <ul style="margin-bottom: 0.8em;"><li>List item 1</li><li>List item 2</li></ul>
+                        <ol style="margin-top: 0.8em;"><li>Numbered item</li><li>Another item</li></ol>
+                        <p><a href="#">Link text</a></p>
+                        <pre style="background:#f5f5f5;padding:0.5em;">code block</pre>
+                    </div>
+                </div>
+                <p style="text-align: center; font-size: 0.75em; margin-top: 0.5em;">
+                    <strong>🔗 Reference:</strong> <a href="https://markdownguide.org" target="_blank">markdownguide.org</a>
+                </p>
+                <aside class="notes">
+                    Markdown is simple formatting for documentation. Headers with #, bold with **, italic with *, lists with - or 1., 
+                    code blocks with triple backticks. Let's do a live demo creating a README in GitHub.
+                </aside>
+            </section>
+
+            <!-- SLIDE 10: Documentation Best Practices -->
+            <section>
+                <h2>Writing Effective Documentation</h2>
+                <ul style="font-size: 0.75em;">
+                    <li><strong>✅ Write for beginners</strong><br>
+                        Assume reader knows nothing about your project
+                    </li>
+                    <li><strong>✅ Explain "why" not just "what"</strong><br>
+                        Context helps understanding
+                    </li>
+                    <li><strong>✅ Include prerequisites</strong><br>
+                        List required software, libraries, knowledge
+                    </li>
+                    <li><strong>✅ Show expected output</strong><br>
+                        Screenshots, example results, success indicators
+                    </li>
+                    <li><strong>✅ Troubleshooting section</strong><br>
+                        Address common issues proactively
+                    </li>
+                    <li><strong>⚠️ Keep it updated!</strong><br>
+                        Outdated docs are worse than no docs
+                    </li>
+                </ul>
+                <aside class="notes">
+                    Write for someone who knows nothing about your project. Explain why decisions were made. Include prerequisites 
+                    and troubleshooting. Most importantly, keep documentation updated—outdated docs create more problems than they solve.
+                </aside>
+            </section>
+
+            <!-- SLIDE 11: Repository Naming -->
+            <section>
+                <h2>Professional Repository Naming</h2>
+                <div style="font-size: 0.75em;">
+                    <div class="good-example" style="margin: 0.5em 0;">
+                        <strong>✅ Good Names:</strong>
+                        <ul style="margin: 0.3em 0; padding-left: 2.5em;">
+                            <li><code>spatial-analysis-toolkit</code></li>
+                            <li><code>leaflet-earthquake-map</code></li>
+                            <li><code>postgis-performance-benchmarks</code></li>
+                            <li><code>qgis-plugin-template</code></li>
+                        </ul>
+                    </div>
+                    <div class="bad-example" style="margin: 0.5em 0;">
+                        <strong>❌ Bad Names:</strong>
+                        <ul style="margin: 0.3em 0; padding-left: 2.5em;">
+                            <li><code>project2</code> - Too generic</li>
+                            <li><code>My GIS Tool</code> - Spaces cause issues</li>
+                            <li><code>FINAL_PROJECT_REALLY_FINAL</code> - Unprofessional</li>
+                            <li><code>asdf</code> - Not descriptive</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 0.8em; font-size: 0.8em;">
+                    <strong>Use lowercase with hyphens: descriptive and specific</strong>
+                </p>
+                <aside class="notes">
+                    Repository names should be lowercase with hyphens, descriptive, and specific. "leaflet-earthquake-map" tells 
+                    you exactly what it is. "project2" tells you nothing. Consistent naming shows professionalism.
+                </aside>
+            </section>
+
+            <!-- SLIDE 12: Commit Messages -->
+            <section>
+                <h2>Writing Clear Commit Messages</h2>
+                <div style="font-size: 0.7em;">
+                    <div class="good-example" style="margin: 0.5em 0;">
+                        <strong>✅ Good Commit Messages:</strong>
+                        <pre style="margin: 0.3em 0;">Add elevation data processing function
+Update README installation steps
+Fix coordinate precision bug in distance calculation
+Refactor spatial query logic for performance</pre>
+                    </div>
+                    <div class="bad-example" style="margin: 0.5em 0;">
+                        <strong>❌ Bad Commit Messages:</strong>
+                        <pre style="margin: 0.3em 0;">fixed stuff
+wip
+asdf
+updated files
+more changes</pre>
+                    </div>
+                </div>
+                <div style="background-color: #e3f2fd; border-left: 4px solid #2196F3; padding: 0.5em; margin-top: 0.8em; font-size: 0.75em;">
+                    <strong>💡 Best Practices:</strong>
+                    <ul style="margin: 0.3em 0; padding-left: 2.5em;">
+                        <li>Present tense: "Add feature" not "Added feature"</li>
+                        <li>Reference issues: "Fix #42" or "Closes #15"</li>
+                        <li>Be specific and descriptive</li>
+                    </ul>
+                </div>
+                <aside class="notes">
+                    Clear commit messages tell a story of your project's development. Use present tense, be specific, reference 
+                    issues when relevant. "Add elevation processing function" is much better than "fixed stuff."
+                </aside>
+            </section>
+
+            <!-- SLIDE 13: Branching Strategy -->
+            <section>
+                <h2>Branching Strategy</h2>
+                <div class="diagram-box" style="font-size: 0.7em; padding: 0.6em; margin: 0.5em 0;">
+                    <pre style="margin: 0; line-height: 1.3;">main branch (stable, working code)
+    │
+    ├──── feature/add-postgis-support (new functionality)
+    │
+    ├──── fix/coordinate-precision (bug fixes)
+    │
+    └──── docs/update-installation (documentation updates)</pre>
+                </div>
+                <ul style="font-size: 0.75em; margin-top: 0.5em; margin-bottom: 0.5em;">
+                    <li><strong>main</strong> = stable, production-ready code</li>
+                    <li><strong>feature/</strong> = new functionality development</li>
+                    <li><strong>fix/</strong> = bug fixes</li>
+                    <li><strong>docs/</strong> = documentation updates</li>
+                </ul>
+                <p style="text-align: center; margin-top: 0.5em; font-size: 0.75em;">
+                    <strong>We'll dive deep into branching in Video 4</strong>
+                </p>
+                <aside class="notes">
+                    Keep your main branch stable. Do development work in feature branches. Clear branch naming conventions make 
+                    collaboration easier. We'll cover this in much more detail in the next video on collaborative workflows.
+                </aside>
+            </section>
+
+            <!-- SLIDE 14: Repository Settings -->
+            <section>
+                <h2>Repository Settings & Configuration</h2>
+                <ul style="font-size: 0.75em;">
+                    <li><strong>🔓 Public vs 🔒 Private:</strong><br>
+                        Public for portfolio/open source, Private for proprietary/in-progress
+                    </li>
+                    <li><strong>📝 Description & Topics:</strong><br>
+                        Help people discover your repository
+                    </li>
+                    <li><strong>📄 GitHub Pages:</strong><br>
+                        Host documentation, project websites
+                    </li>
+                    <li><strong>🐛 Issue Templates:</strong><br>
+                        Structure for bug reports, feature requests
+                    </li>
+                    <li><strong>🤖 GitHub Actions:</strong><br>
+                        Automated testing and deployment
+                    </li>
+                </ul>
+                <p style="text-align: center; margin-top: 0.8em; font-size: 0.75em;">
+                    <strong>🔗 Demo:</strong> We'll explore these settings live
+                </p>
+                <aside class="notes">
+                    Repository settings matter for discoverability and professionalism. Add description and topics so people can 
+                    find your work. Consider GitHub Pages for documentation. We'll demo these settings in GitHub.
+                </aside>
+            </section>
+
+            <!-- SLIDE 15: Building Your GIS Portfolio -->
+            <section>
+                <h2>GitHub as Your GIS Portfolio</h2>
+                <ul style="font-size: 0.75em;">
+                    <li><strong>📌 Pin Important Repositories</strong><br>
+                        Show your best work first
+                    </li>
+                    <li><strong>👤 Complete Profile</strong><br>
+                        Bio, location, website, social links
+                    </li>
+                    <li><strong>📊 Contribution Graph</strong><br>
+                        Shows consistency and activity
+                    </li>
+                    <li><strong>🏢 Organizations</strong><br>
+                        Shows collaboration and team experience
+                    </li>
+                    <li><strong>📝 Profile README</strong><br>
+                        Create <code>username/username</code> repo for profile page
+                    </li>
+                </ul>
+                <p style="text-align: center; margin-top: 0.8em; font-size: 0.75em;">
+                    <strong>🔗 Examples:</strong> <a href="https://github.com/giswqs" target="_blank">giswqs</a> | 
+                    <a href="https://github.com/topics/awesome-profile" target="_blank">awesome-profile</a>
+                </p>
+                <aside class="notes">
+                    Your GitHub profile IS your portfolio. Pin your best repositories, complete your profile, keep active with a 
+                    consistent contribution graph. Create a profile README by making a repository with your username. Let me show 
+                    you some great examples.
+                </aside>
+            </section>
+
+            <!-- SLIDE 16: M1A3 Assignment Overview -->
+            <section>
+                <h2>Assignment: M1A3</h2>
+                <h3 style="font-size: 1.1em;">Create a Professional GIS Repository</h3>
+                <ul style="font-size: 0.75em;">
+                    <li>✅ Proper structure (README, LICENSE, .gitignore, directories)</li>
+                    <li>✅ Professional README with all essential components</li>
+                    <li>✅ Appropriate license and .gitignore</li>
+                    <li>✅ Simple Python GIS script (spatial "Hello World")</li>
+                    <li>✅ Clean commit history with good messages</li>
+                    <li>✅ Link from GitHub Classroom assignment</li>
+                </ul>
+                <div style="background-color: #e8f5e9; border-left: 4px solid #4CAF50; padding: 0.5em; margin-top: 0.8em; font-size: 0.75em;">
+                    <strong>🤖 Automated Validation:</strong><br>
+                    GitHub Actions will check your repository structure and script execution
+                </div>
+                <aside class="notes">
+                    M1A3 is your chance to practice everything we've covered. Create a professional repository with proper structure 
+                    and documentation. GitHub Actions will validate your work. Think of this as a template for all future projects.
+                </aside>
+            </section>
+
+            <!-- SLIDE 17: Resources -->
+            <section>
+                <h2>Essential Resources</h2>
+                <div style="font-size: 0.75em; display: grid; grid-template-columns: 1fr 1fr; gap: 1em;">
+                    <div>
+                        <strong>Documentation:</strong>
+                        <ul style="font-size: 0.95em;">
+                            <li><a href="https://docs.github.com" target="_blank">GitHub Docs</a></li>
+                            <li><a href="https://markdownguide.org" target="_blank">Markdown Guide</a></li>
+                            <li><a href="https://choosealicense.com" target="_blank">Choose a License</a></li>
+                            <li><a href="https://github.com/github/gitignore" target="_blank">Gitignore Templates</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong>Great README Examples:</strong>
+                        <ul style="font-size: 0.95em;">
+                            <li><a href="https://github.com/Leaflet/Leaflet" target="_blank">Leaflet</a></li>
+                            <li><a href="https://github.com/OSGeo/gdal" target="_blank">GDAL</a></li>
+                            <li><a href="https://github.com/geopandas/geopandas" target="_blank">GeoPandas</a></li>
+                            <li><a href="https://github.com/qgis/QGIS" target="_blank">QGIS</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1em; font-size: 0.8em;">
+                    <strong>📚 Bookmark these—you'll use them throughout your career</strong>
+                </p>
+                <aside class="notes">
+                    Here are essential resources. GitHub Docs for platform features. Markdown Guide for formatting. Choose a License 
+                    for license selection. Gitignore templates for every language. And examples of excellent READMEs from major GIS projects.
+                </aside>
+            </section>
+
+            <!-- SLIDE 18: Summary -->
+            <section>
+                <h2>Key Takeaways</h2>
+                <ul style="font-size: 0.8em;">
+                    <li>✅ Repository management = professional communication</li>
+                    <li>✅ Four essential files: README, LICENSE, .gitignore, structure</li>
+                    <li>✅ Documentation is for others AND future-you</li>
+                    <li>✅ Small details create professional impression</li>
+                    <li>✅ Your GitHub IS your portfolio</li>
+                </ul>
+                <p style="margin-top: 1.5em; text-align: center; font-size: 1.1em;">
+                    <strong>Practice good habits now = portfolio-ready later</strong>
+                </p>
+                <p style="text-align: center; margin-top: 1em; font-size: 0.9em;">
+                    Ready for M1A3? Let's build professional repositories!
+                </p>
+                <aside class="notes">
+                    To wrap up: Repository management is about professional communication. The four essential files are non-negotiable. 
+                    Documentation helps others and future-you. Small details matter. Your GitHub is your portfolio. Practice these 
+                    habits now, and they'll serve you throughout your career. Ready for M1A3!
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'slide',
+            plugins: [ RevealNotes ],
+            width: 1280,
+            height: 720,
+            margin: 0.1
+        });
+    </script>
+</body>
+</html>
+

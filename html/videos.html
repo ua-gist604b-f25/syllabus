@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIST 604B - Video Slideshows</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 2rem;
+        }
+        
+        .module-section {
+            margin-bottom: 3rem;
+        }
+        
+        .module-title {
+            font-size: 1.8rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .video-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+        
+        .video-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .video-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+        
+        .video-duration {
+            font-size: 0.9rem;
+            color: #718096;
+            margin-bottom: 1rem;
+        }
+        
+        .video-links {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #2d3748;
+        }
+        
+        .btn-secondary:hover {
+            background: #cbd5e0;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+        
+        .status-complete {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+        
+        .status-wip {
+            background: #fef3c7;
+            color: #78350f;
+        }
+        
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .info-box {
+            background: #e6fffa;
+            border-left: 4px solid #319795;
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+        
+        .info-box strong {
+            color: #234e52;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 GIST 604B Video Slideshows</h1>
+            <p class="subtitle">Advanced GIS with Open Source Software</p>
+        </header>
+        
+        <div class="content">
+            <div class="info-box">
+                <strong>📖 How to Use:</strong> Click "View Slides" to open the presentation. Press <kbd>S</kbd> for speaker notes, 
+                <kbd>F</kbd> for fullscreen, <kbd>Esc</kbd> for overview. Arrow keys navigate.
+            </div>
+            
+            <!-- START HERE SECTION -->
+            <section class="module-section">
+                <h2 class="module-title">🚀 Start Here (Pre-Course)</h2>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <span class="video-number">Video 0</span>
+                        <span class="status status-complete">Complete</span>
+                        <h3 class="video-title">About This Course & Your Instructor</h3>
+                        <p class="video-duration">⏱️ 5-7 minutes</p>
+                        <div class="video-links">
+                            <a href="../d2l/start-here/videos/video-0-slides.html" class="btn btn-primary">View Slides</a>
+                            <a href="../d2l/start-here/videos/video-0-about-this-course.md" class="btn btn-secondary">Planning Doc</a>
+                            <a href="../d2l/start-here/videos/video-0-about-this-course-script.md" class="btn btn-secondary">Script</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- MODULE 1 SECTION -->
+            <section class="module-section">
+                <h2 class="module-title">📦 Module 1: Open Source & Git Workflows</h2>
+                <div class="video-grid">
+                    
+                    <!-- Video 1: Licenses -->
+                    <div class="video-card">
+                        <span class="video-number">Video 1</span>
+                        <span class="status status-complete">Complete</span>
+                        <h3 class="video-title">Open Source Philosophy & Licenses</h3>
+                        <p class="video-duration">⏱️ 20-25 minutes</p>
+                        <div class="video-links">
+                            <a href="../modules/module-1-open-source-git-workflows/videos/video-2-slides.html" class="btn btn-primary">View Slides</a>
+                            <a href="../modules/module-1-open-source-git-workflows/videos/video-2-open-source-licenses.md" class="btn btn-secondary">Planning Doc</a>
+                            <a href="../modules/module-1-open-source-git-workflows/videos/video-2-open-source-licenses-script.md" class="btn btn-secondary">Script</a>
+                            <a href="../modules/module-1-open-source-git-workflows/videos/video-2-open-source-licenses-slideshow.md" class="btn btn-secondary">Slideshow (MD)</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 2: OSS GIS -->
+                    <div class="video-card">
+                        <span class="video-number">Video 2</span>
+                        <span class="status status-complete">Complete</span>
+                        <h3 class="video-title">Open Source GIS Ecosystem</h3>
+                        <p class="video-duration">⏱️ 15-20 minutes</p>
+                        <div class="video-links">
+                            <a href="../modules/module-1-open-source-git-workflows/videos/video-3-open-source-gis-slides.html" class="btn btn-primary">View Slides</a>
+                            <a href="../modules/module-1-open-source-git-workflows/videos/video-3-open-source-gis.md" class="btn btn-secondary">Planning Doc</a>
+                            <a href="../modules/module-1-open-source-git-workflows/videos/video-3-open-source-gis-script.md" class="btn btn-secondary">Script</a>
+                            <a href="../modules/module-1-open-source-git-workflows/videos/video-3-open-source-gis-slideshow.md" class="btn btn-secondary">Slideshow (MD)</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 3: Repository Management -->
+                    <div class="video-card">
+                        <span class="video-number">Video 3</span>
+                        <span class="status status-complete">Complete</span>
+                        <h3 class="video-title">GitHub Repository Management</h3>
+                        <p class="video-duration">⏱️ 18-22 minutes</p>
+                        <div class="video-links">
+                            <a href="../modules/module-1-open-source-git-workflows/videos/video-3-repository-management-slides.html" class="btn btn-primary">View Slides</a>
+                            <a href="../modules/module-1-open-source-git-workflows/videos/video-4-github-repository-management.md" class="btn btn-secondary">Planning Doc</a>
+                            <a href="../modules/module-1-open-source-git-workflows/videos/video-4-github-repository-management-script.md" class="btn btn-secondary">Script</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 4: Collaborative Workflows -->
+                    <div class="video-card">
+                        <span class="video-number">Video 4</span>
+                        <span class="status status-complete">Complete</span>
+                        <h3 class="video-title">Collaborative Git Workflows</h3>
+                        <p class="video-duration">⏱️ 22-28 minutes</p>
+                        <p style="color: #2c5282; margin-top: 0.5rem; font-size: 0.9rem;">
+                            ✨ <strong>Demo Repository:</strong> Uses <a href="https://github.com/ua-gist604b-f25/demo-gis-toolkit" target="_blank" style="color: #2b6cb0; text-decoration: underline;">demo-gis-toolkit</a> for live demonstrations
+                        </p>
+                        <div class="video-links">
+                            <a href="../modules/module-1-open-source-git-workflows/videos/video-4-collaborative-workflows-slides.html" class="btn btn-primary">View Slides</a>
+                            <a href="../modules/module-1-open-source-git-workflows/videos/video-5-collaborative-git-workflows.md" class="btn btn-secondary">Planning Doc</a>
+                            <a href="../modules/module-1-open-source-git-workflows/videos/video-5-collaborative-git-workflows-script.md" class="btn btn-secondary">Script</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+            
+            <!-- MODULE 2 SECTION (Placeholder) -->
+            <section class="module-section">
+                <h2 class="module-title">🗺️ Module 2: QGIS - Desktop GIS</h2>
+                <div class="info-box">
+                    <strong>Coming Soon:</strong> Video slideshows for Module 2 will be created following the same format.
+                </div>
+            </section>
+            
+            <!-- MODULE 3 SECTION (Placeholder) -->
+            <section class="module-section">
+                <h2 class="module-title">🐍 Module 3: Python GIS & Containerization</h2>
+                <div class="info-box">
+                    <strong>Coming Soon:</strong> Video slideshows for Module 3 will be created following the same format.
+                </div>
+            </section>
+            
+        </div>
+        
+        <footer>
+            <p><strong>GIST 604B</strong> - Advanced GIS with Open Source Software</p>
+            <p style="margin-top: 0.5rem; opacity: 0.8;">University of Arizona | Fall 2025</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">
+                💡 <strong>Tip:</strong> Bookmark this page for quick access to all course videos
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
+

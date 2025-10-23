@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video 3: Open Source GIS Ecosystem</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/white.min.css">
+    <style>
+        .reveal h1 { font-size: 1.625em; color: #2c3e50; }
+        .reveal h2 { font-size: 1.17em; color: #2c3e50; }
+        .reveal h3 { font-size: 0.91em; color: #2c3e50; }
+        .reveal { font-size: 32px; }
+        .reveal ul { text-align: left; }
+        .reveal strong { color: #667eea; }
+        .category-box { background: #f8f9fa; padding: 1.5em; border-radius: 12px; margin: 1em 0; border-left: 4px solid #667eea; }
+        .tool-name { font-size: 1.3em; color: #667eea; font-weight: bold; }
+        .framework-box { background: #e8f4f8; padding: 1em; border-radius: 8px; margin: 0.5em 0; text-align: left; }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- SLIDE 1: Title -->
+            <section data-background-gradient="linear-gradient(to bottom, #667eea, #764ba2)">
+                <h1 style="color: white;">Open Source GIS Ecosystem</h1>
+                <h3 style="color: #f0f0f0;">Module 1 - GIST 604B</h3>
+                <p style="color: #f0f0f0; margin-top: 2em;">Discovering the Rich World of Open Source GIS</p>
+                <aside class="notes">
+                    Welcome back! Today we're exploring the open source GIS ecosystem. This video prepares you for M1A2—your Open Source Discovery assignment—and Activity 3 where you'll share tools with classmates. By the end, you'll understand the major categories of tools, how to evaluate them, and why this matters for your career. Let's dive in!
+                </aside>
+            </section>
+
+            <!-- SLIDE 2: Ecosystem Overview -->
+            <section>
+                <h2>Open Source GIS is an ECOSYSTEM</h2>
+                <div style="font-size: 0.85em; margin-top: 1.5em;">
+                    <p>Not just one tool → <strong>Hundreds of projects</strong></p>
+                    <p>Not just desktop → <strong>Full technology stack</strong></p>
+                    <p>Not just hobbyist → <strong>Professional-grade</strong></p>
+                </div>
+                <div style="margin-top: 2em; font-size: 0.9em;">
+                    <p>🌍 Global community</p>
+                    <p>🔧 Specialized tools for specific needs</p>
+                    <p>🤝 Interoperability by design</p>
+                </div>
+                <p style="margin-top: 2em; font-style: italic;">Let's explore the landscape...</p>
+                <aside class="notes">
+                    First, let me set the stage. Open source GIS isn't just one tool—it's a rich ecosystem with hundreds of projects. You've got desktop applications, web mapping libraries, databases, command-line tools, and more. These are professional-grade tools used by NASA, governments, and Fortune 500 companies. Let's break down the major categories.
+                </aside>
+            </section>
+
+            <!-- SLIDE 3: Desktop GIS -->
+            <section>
+                <h2>Category 1: Desktop GIS</h2>
+                <p style="font-size: 0.75em; color: #666; margin-bottom: 1em;">Full-featured analysis and mapping</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em;">
+                    <div class="category-box">
+                        <p class="tool-name">🗺️ QGIS</p>
+                        <ul style="font-size: 0.7em;">
+                            <li>Most popular open source desktop GIS</li>
+                            <li>ArcGIS alternative</li>
+                            <li>400+ plugins</li>
+                            <li><a href="https://qgis.org" target="_blank">qgis.org</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-box">
+                        <p class="tool-name">🌱 GRASS GIS</p>
+                        <ul style="font-size: 0.7em;">
+                            <li>Advanced raster processing</li>
+                            <li>Scientific modeling</li>
+                            <li>NASA uses it</li>
+                            <li><a href="https://grass.osgeo.org" target="_blank">grass.osgeo.org</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top: 1em; text-align: center; font-size: 0.8em;"><strong>We'll use QGIS extensively in Module 2!</strong></p>
+                <aside class="notes">
+                    Category 1: Desktop GIS. QGIS is the most popular—it's a full ArcGIS alternative with 400+ plugins. We'll use it extensively in Module 2. GRASS GIS is more specialized for advanced raster processing and scientific modeling. NASA actually uses GRASS for some of their work. These are not toy tools—they're professional-grade applications.
+                </aside>
+            </section>
+
+            <!-- SLIDE 4: Spatial Databases -->
+            <section>
+                <h2>Category 2: Spatial Databases</h2>
+                <p style="font-size: 0.75em; color: #666; margin-bottom: 1em;">Store and query geographic data at scale</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em;">
+                    <div class="category-box">
+                        <p class="tool-name">🗄️ PostGIS</p>
+                        <ul style="font-size: 0.7em;">
+                            <li>Extends PostgreSQL</li>
+                            <li>Enterprise-grade</li>
+                            <li>Uber, Lyft use it</li>
+                            <li><a href="https://postgis.net" target="_blank">postgis.net</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-box">
+                        <p class="tool-name">💾 SpatiaLite</p>
+                        <ul style="font-size: 0.7em;">
+                            <li>Lightweight (SQLite extension)</li>
+                            <li>Mobile applications</li>
+                            <li>Embedded systems</li>
+                            <li><a href="https://www.gaia-gis.it/fossil/libspatialite" target="_blank">gaia-gis.it</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top: 1em; text-align: center; font-size: 0.8em;"><strong>Module 4 deep-dive: PostGIS</strong></p>
+                <aside class="notes">
+                    Category 2: Spatial Databases. PostGIS extends PostgreSQL to handle spatial data at massive scale. Companies like Uber and Lyft use PostGIS for their location-based services. SpatiaLite is lighter-weight, great for mobile apps. We'll dive deep into PostGIS in Module 4.
+                </aside>
+            </section>
+
+            <!-- SLIDE 5: Programming Libraries -->
+            <section>
+                <h2>Category 3: Programming Libraries</h2>
+                <p style="font-size: 0.75em; color: #666; margin-bottom: 1em;">Build custom GIS applications</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em;">
+                    <div class="category-box">
+                        <p class="tool-name">📚 GDAL/OGR</p>
+                        <ul style="font-size: 0.7em;">
+                            <li><strong>Foundation of EVERYTHING</strong></li>
+                            <li>Data conversion, transformation</li>
+                            <li>Used by ArcGIS, QGIS, Google, NASA</li>
+                            <li><a href="https://gdal.org" target="_blank">gdal.org</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-box">
+                        <p class="tool-name">🐍 Python Libraries</p>
+                        <ul style="font-size: 0.7em;">
+                            <li><strong>GeoPandas</strong> - Spatial data analysis</li>
+                            <li><strong>Rasterio</strong> - Raster processing</li>
+                            <li><strong>Fiona</strong> - Vector data I/O</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top: 1em; text-align: center; font-size: 0.8em;"><strong>Module 3 focus: Python GIS programming</strong></p>
+                <aside class="notes">
+                    Category 3: Programming Libraries. GDAL is the foundational library—it's used by literally everything. ArcGIS uses it. QGIS uses it. Google uses it. It's the Swiss Army knife of geospatial data. Then you have Python libraries like GeoPandas and Rasterio that we'll use heavily in Module 3 for building custom analyses.
+                </aside>
+            </section>
+
+            <!-- SLIDE 6: Web Mapping -->
+            <section>
+                <h2>Category 4: Web Mapping</h2>
+                <p style="font-size: 0.75em; color: #666; margin-bottom: 1em;">Interactive maps in browsers</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin-bottom: 1em;">
+                    <div class="category-box">
+                        <p class="tool-name">🍃 Leaflet</p>
+                        <ul style="font-size: 0.7em;">
+                            <li>Lightweight, easy to learn</li>
+                            <li>Mobile-friendly</li>
+                            <li>Most popular web mapping library</li>
+                            <li><a href="https://leafletjs.com" target="_blank">leafletjs.com</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-box">
+                        <p class="tool-name">🗺️ OpenLayers</p>
+                        <ul style="font-size: 0.7em;">
+                            <li>Powerful, enterprise-grade</li>
+                            <li>Advanced features</li>
+                            <li><a href="https://openlayers.org" target="_blank">openlayers.org</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="max-width: 50%; margin: 0 auto;">
+                    <div class="category-box">
+                        <p class="tool-name">🚀 MapLibre</p>
+                        <ul style="font-size: 0.7em;">
+                            <li>Mapbox fork (open source)</li>
+                            <li>WebGL rendering, 3D</li>
+                            <li><a href="https://maplibre.org" target="_blank">maplibre.org</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top: 1em; text-align: center; font-size: 0.8em;"><strong>Module 5 focus: Web GIS development</strong></p>
+                <aside class="notes">
+                    Category 4: Web Mapping. Leaflet is the most popular—lightweight, easy to learn, mobile-friendly. OpenLayers is more powerful for enterprise needs. MapLibre is a recent Mapbox fork with WebGL rendering and 3D capabilities. We'll build interactive web maps in Module 5 using these tools.
+                </aside>
+            </section>
+
+            <!-- SLIDE 7: Data Processing & Servers -->
+            <section>
+                <h2>Category 5: Data Processing & Servers</h2>
+                <p style="font-size: 0.75em; color: #666; margin-bottom: 1em;">Command-line tools and spatial data servers</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em;">
+                    <div class="category-box">
+                        <p class="tool-name">⚙️ GDAL/OGR CLI</p>
+                        <ul style="font-size: 0.7em;">
+                            <li>Batch processing</li>
+                            <li>Automation workflows</li>
+                            <li>Production pipelines</li>
+                        </ul>
+                    </div>
+                    <div class="category-box">
+                        <p class="tool-name">🌐 GeoServer / MapServer</p>
+                        <ul style="font-size: 0.7em;">
+                            <li>Publish spatial data as web services</li>
+                            <li>OGC standards (WMS, WFS, WCS)</li>
+                            <li>Government agencies use these</li>
+                            <li><a href="http://geoserver.org" target="_blank">geoserver.org</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top: 1.5em; text-align: center; font-size: 0.9em;"><strong>Professional workflows = automation</strong></p>
+                <aside class="notes">
+                    Category 5: Data Processing and Servers. GDAL has powerful command-line tools for batch processing and automation—essential for production workflows. GeoServer and MapServer publish spatial data as web services following OGC standards. Government agencies and enterprises use these to serve data to the public. Professional GIS increasingly means automation, not just point-and-click.
+                </aside>
+            </section>
+
+            <!-- SLIDE 8: QGIS Case Study -->
+            <section>
+                <h2>Case Study: QGIS</h2>
+                <p style="font-size: 0.85em; color: #666;">How open source rivals proprietary software</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; font-size: 0.75em; margin-top: 1.5em;">
+                    <div>
+                        <h3 style="font-size: 1.1em;">📅 Journey</h3>
+                        <ul>
+                            <li>2002: Started by Gary Sherman</li>
+                            <li>Now: Used by governments, companies worldwide</li>
+                            <li>Releases every 4 months</li>
+                            <li>400+ plugins, 40+ languages</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.1em;">👥 Community Model</h3>
+                        <ul>
+                            <li>Volunteer developers</li>
+                            <li>Company-sponsored developers</li>
+                            <li>Global user groups</li>
+                            <li>Annual conferences</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top: 1.5em; text-align: center; font-size: 0.9em; background: #e8f4f8; padding: 1em; border-radius: 8px;">
+                    <strong>💪 Result: Professional-grade software, zero fees</strong>
+                </p>
+                <aside class="notes">
+                    Let's do a case study on QGIS. Started in 2002 by one developer, Gary Sherman. Now it's used by governments, companies, and universities worldwide. They release updates every 4 months—faster than proprietary vendors! The community model combines volunteer developers with companies that sponsor development. The result? Professional-grade software that rivals ArcGIS, completely free and open. This shows what's possible with open source.
+                </aside>
+            </section>
+
+            <!-- SLIDE 9: Evaluation Framework Part 1 -->
+            <section>
+                <h2>Evaluation Framework for M1A2</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin-top: 1.5em;">
+                    <div class="framework-box">
+                        <h3 style="font-size: 0.95em;">1️⃣ Project Health</h3>
+                        <ul style="font-size: 0.7em;">
+                            <li>✓ When was last commit?</li>
+                            <li>✓ How many contributors? (bus factor)</li>
+                            <li>✓ Issue response time?</li>
+                            <li>✓ Funding/sponsorship?</li>
+                        </ul>
+                    </div>
+                    <div class="framework-box">
+                        <h3 style="font-size: 0.95em;">2️⃣ Community Strength</h3>
+                        <ul style="font-size: 0.7em;">
+                            <li>✓ Documentation quality</li>
+                            <li>✓ Tutorial availability</li>
+                            <li>✓ Forum/mailing list activity</li>
+                            <li>✓ Stack Overflow presence</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="background: #fff3cd; padding: 1em; border-radius: 8px; margin-top: 1em;">
+                    <p style="font-size: 0.7em; margin-bottom: 0.5em;"><strong>🔍 QGIS Example - Where to Look:</strong></p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5em; font-size: 0.65em;">
+                        <div>
+                            <strong>Project Health:</strong>
+                            <ul style="margin: 0.25em 0 0 1.5em;">
+                                <li><a href="https://github.com/qgis/QGIS/commits/master" target="_blank">Commit history</a></li>
+                                <li><a href="https://github.com/qgis/QGIS/graphs/contributors" target="_blank">Contributors</a></li>
+                                <li><a href="https://github.com/qgis/QGIS/issues" target="_blank">Issues</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Community Strength:</strong>
+                            <ul style="margin: 0.25em 0 0 1.5em;">
+                                <li><a href="https://docs.qgis.org" target="_blank">Documentation</a></li>
+                                <li><a href="https://docs.qgis.org/latest/en/docs/training_manual/" target="_blank">Tutorials</a></li>
+                                <li><a href="https://lists.osgeo.org/mailman/listinfo/qgis-user" target="_blank">Forum/mailing list</a></li>
+                                <li><a href="https://stackoverflow.com/questions/tagged/qgis" target="_blank">Stack Overflow</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top: 1em; text-align: center; font-size: 0.85em;"><strong>Use this framework for M1A2 research!</strong></p>
+                <aside class="notes">
+                    Now let's talk about how to EVALUATE open source tools—this is your framework for M1A2. First, check project health. Look at the GitHub repository: When was the last commit? If it's been years, the project might be abandoned. How many contributors? If it's just one person—that's a 'bus factor' risk. Check issue response times and whether there's funding or sponsorship for sustainability. Second, assess community strength. Good documentation? Tutorials available? Active forums? Stack Overflow questions and answers? These indicate a healthy, supportive community. Look at these QGIS links—this is exactly where you'd check each criterion for any open source project.
+                </aside>
+            </section>
+
+            <!-- SLIDE 10: Evaluation Framework Part 2 -->
+            <section>
+                <h2>Evaluation Framework (continued)</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin-top: 1.5em;">
+                    <div class="framework-box">
+                        <h3 style="font-size: 0.95em;">3️⃣ Technical Fitness</h3>
+                        <ul style="font-size: 0.7em;">
+                            <li>✓ Does it solve YOUR problem?</li>
+                            <li>✓ Platform support (OS compatibility)?</li>
+                            <li>✓ Dependencies manageable?</li>
+                            <li>✓ Performance adequate?</li>
+                            <li>✓ Integration with other tools?</li>
+                        </ul>
+                    </div>
+                    <div class="framework-box">
+                        <h3 style="font-size: 0.95em;">4️⃣ License Considerations</h3>
+                        <ul style="font-size: 0.7em;">
+                            <li>✓ Can you use commercially?</li>
+                            <li>✓ Must share modifications?</li>
+                            <li>✓ Compatible with your stack?</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="background: #fff3cd; padding: 1em; border-radius: 8px; margin-top: 1em;">
+                    <p style="font-size: 0.7em; margin-bottom: 0.5em;"><strong>🔍 QGIS Example - Where to Look:</strong></p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5em; font-size: 0.65em;">
+                        <div>
+                            <strong>Technical Fitness:</strong>
+                            <ul style="margin: 0.25em 0 0 1.5em;">
+                                <li><a href="https://qgis.org/en/site/about/features.html" target="_blank">Features list</a> (Does it solve YOUR problem?)</li>
+                                <li><a href="https://qgis.org/en/site/forusers/download.html" target="_blank">Download page</a> (Platform support)</li>
+                                <li><a href="https://qgis.org/en/docs/user_manual/introduction/getting_started.html#system-requirements" target="_blank">System requirements</a> (Dependencies)</li>
+                                <li><a href="https://plugins.qgis.org/" target="_blank">Plugin repository</a> (Integration)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>License Considerations:</strong>
+                            <ul style="margin: 0.25em 0 0 1.5em;">
+                                <li><a href="https://github.com/qgis/QGIS/blob/master/COPYING" target="_blank">LICENSE file</a> (GPL v2 - read actual license)</li>
+                                <li><a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html" target="_blank">GPL v2 explained</a> (Commercial use, copyleft)</li>
+                                <li><a href="https://choosealicense.com/licenses/gpl-2.0/" target="_blank">GPL quick reference</a> (Compatibility check)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top: 1em; text-align: center; font-size: 0.85em;"><strong>Don't just pick the most popular—pick the right fit!</strong></p>
+                <aside class="notes">
+                    Third, technical fitness. Does the tool actually solve YOUR specific problem? Don't pick something just because it's popular. Check platform support—does it run on your OS? Are dependencies manageable? Is performance adequate? Can it integrate with other tools in your workflow? Finally, license considerations—we covered this in Video 2. Can you use it commercially? Must you share modifications? Is it compatible with other tools in your stack? Use ALL four criteria to make informed decisions. Look at these QGIS links—check the features page to see if it solves your problem, download page for platform support, system requirements for dependencies, and the LICENSE file to understand usage terms.
+                </aside>
+            </section>
+
+            <!-- SLIDE 11: Career Opportunities -->
+            <section>
+                <h2>Career Opportunities with Open Source GIS</h2>
+                <div style="font-size: 0.75em; margin-top: 1.5em;">
+                    <div class="framework-box">
+                        <h3 style="font-size: 1em;">💼 Job Market Demand</h3>
+                        <ul>
+                            <li>Government agencies (transparency, cost)</li>
+                            <li>Startups (avoid licensing fees)</li>
+                            <li>Consultancies (client flexibility)</li>
+                        </ul>
+                    </div>
+                    <div class="framework-box">
+                        <h3 style="font-size: 1em;">📈 Professional Benefits</h3>
+                        <ul>
+                            <li>Public portfolio (proof of skills)</li>
+                            <li>Not vendor-locked</li>
+                            <li>Access to cutting-edge tools</li>
+                        </ul>
+                    </div>
+                    <div class="framework-box">
+                        <h3 style="font-size: 1em;">🌍 Real-World Impact</h3>
+                        <ul>
+                            <li>Planet: GDAL for satellite processing</li>
+                            <li>HOT: Disaster response mapping</li>
+                            <li>Smart cities: Open GIS stacks</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top: 1em; text-align: center; font-size: 0.9em;"><strong>Open source skills = Marketable skills</strong></p>
+                <aside class="notes">
+                    Why does this matter for your career? Many employers actively want open source skills. Government agencies adopt open source for cost savings and transparency. Startups avoid licensing fees. Consultancies need flexibility for different clients. Open source contributions give you a public portfolio—proof of skills employers can actually see. You're not locked into one vendor's ecosystem. And real-world impact? At Planet Labs, we use GDAL to process satellite imagery. The Humanitarian OpenStreetMap Team uses open source for disaster response. Smart city initiatives worldwide use open GIS stacks. These are marketable, powerful skills.
+                </aside>
+            </section>
+
+            <!-- SLIDE 12: This Week's Activities -->
+            <section>
+                <h2>Apply This Knowledge</h2>
+                <div style="font-size: 0.75em; margin-top: 1.5em;">
+                    <div class="framework-box">
+                        <h3 style="font-size: 1em;">📋 Activity 3</h3>
+                        <ul>
+                            <li><a href="https://github.com/orgs/ua-gist604b-f25/discussions/2" target="_blank">Poll: Tools you've heard of</a></li>
+                            <li>Share: 3 tools you're considering for M1A2</li>
+                            <li>Get peer feedback & discover options</li>
+                        </ul>
+                    </div>
+                    <div class="framework-box">
+                        <h3 style="font-size: 1em;">🔬 M1A1 - Open Source License Analysis</h3>
+                        <ul>
+                            <li><a href="https://d2l.arizona.edu/d2l/le/content/1663797/viewContent/19626548/View" target="_blank">View assignment in D2L</a></li>
+                            <li>Analyze 5 open source licenses</li>
+                            <li>Apply to real-world scenarios</li>
+                        </ul>
+                    </div>
+                    <div class="framework-box">
+                        <h3 style="font-size: 1em;">🔬 M1A2 - Open Source Discovery</h3>
+                        <ul>
+                            <li><a href="https://d2l.arizona.edu/d2l/le/content/1663797/viewContent/19627094/View" target="_blank">View assignment in D2L</a></li>
+                            <li>Research 3 projects (different categories)</li>
+                            <li>Apply evaluation framework</li>
+                            <li>Compare and analyze</li>
+                        </ul>
+                    </div>
+                    <div class="framework-box">
+                        <h3 style="font-size: 1em;">💡 Tips</h3>
+                        <ul>
+                            <li>✓ Pick tools that interest YOU</li>
+                            <li>✓ Don't all choose QGIS—explore!</li>
+                            <li>✓ Use Activity 3 to discover from classmates</li>
+                        </ul>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Here's how this connects to your coursework. Activity 3—you'll participate in a poll about tools you've heard of, then share 3 tools you're considering for M1A2. Get peer feedback and discover options from classmates. M1A1 analyzes open source licenses—you'll evaluate 5 different licenses and apply them to real-world scenarios. M1A2—Open Source Discovery—you'll research 3 projects from different categories and apply the evaluation framework from this video. Tips for success: Pick tools that genuinely interest you. Don't all choose QGIS—explore the ecosystem! Use Activity 3 to discover options from classmates.
+                </aside>
+            </section>
+
+            <!-- SLIDE 13: Resources -->
+            <section>
+                <h2>Essential Resources</h2>
+                <div style="font-size: 0.8em; margin-top: 1.5em; text-align: left;">
+                    <p>🔗 <strong>OSGeo Foundation</strong><br>
+                       <span style="font-size: 0.85em;">Umbrella organization for OSS GIS projects - <a href="https://www.osgeo.org" target="_blank">osgeo.org</a></span></p>
+                    
+                    <p>🔗 <strong>Project Homepages</strong><br>
+                       <span style="font-size: 0.85em;"><a href="https://qgis.org" target="_blank">QGIS.org</a> | <a href="https://gdal.org" target="_blank">GDAL.org</a> | <a href="https://postgis.net" target="_blank">PostGIS.net</a></span></p>
+                    
+                    <p>🔗 <strong>GitHub Topics</strong><br>
+                       <span style="font-size: 0.85em;">Search: <a href="https://github.com/topics/gis" target="_blank">gis</a>, <a href="https://github.com/topics/geospatial" target="_blank">geospatial</a>, <a href="https://github.com/topics/mapping" target="_blank">mapping</a></span></p>
+                    
+                    <p>🔗 <strong>GIS Stack Exchange</strong><br>
+                       <span style="font-size: 0.85em;">Q&A community - <a href="https://gis.stackexchange.com" target="_blank">gis.stackexchange.com</a></span></p>
+                    
+                    <p>🔗 <strong>GeoForAll Initiative</strong><br>
+                       <span style="font-size: 0.85em;">Educational resources - <a href="https://www.geoforall.org" target="_blank">geoforall.org</a></span></p>
+                </div>
+                <p style="margin-top: 1.5em; text-align: center; font-size: 0.9em;"><strong>Start exploring today!</strong></p>
+                <aside class="notes">
+                    Here are essential resources for your research. The OSGeo Foundation is the umbrella organization for many open source GIS projects. Project homepages like QGIS.org and GDAL.org have excellent documentation. GitHub lets you search by topics like 'gis' and 'geospatial'. GIS Stack Exchange is a Q&A community. And GeoForAll provides educational resources. Bookmark these—you'll use them throughout the course and your career.
+                </aside>
+            </section>
+
+            <!-- SLIDE 14: Poll 3 - Open Source Career Relevance -->
+            <section>
+                <h2>📊 Quick Poll: Open Source & Your Career</h2>
+                <div style="background: #e8f5e9; border-left: 4px solid #4CAF50; padding: 1.5em; margin: 1.5em 0; border-radius: 8px;">
+                    <h3 style="margin-top: 0;">✏️ Poll 3: Open Source Career Relevance</h3>
+                    <p style="font-size: 0.9em; margin: 0.8em 0;">
+                        <strong>Question:</strong> How relevant is open source GIS to your career goals?
+                    </p>
+                    <p style="font-size: 0.85em; margin: 0.5em 0;">
+                        🤷 Not relevant → 🔍 Somewhat relevant → 🎯 Very relevant → 💼 Already using professionally
+                    </p>
+                </div>
+                <div style="text-align: center; margin-top: 1.5em;">
+                    <p style="font-size: 1.1em;"><strong>⏱️ Takes 1 minute</strong></p>
+                    <p style="font-size: 0.9em; margin: 0.8em 0;">
+                        <a href="https://github.com/ua-gist604b-f25/syllabus/discussions/categories/module-1-polls" 
+                           target="_blank" 
+                           style="color: #4CAF50; font-weight: bold;">
+                            → Vote in Module 1 Polls
+                        </a>
+                    </p>
+                    <p style="font-size: 0.85em; color: #666;">
+                        Your vote is anonymous • Helps instructor emphasize career-relevant examples
+                    </p>
+                </div>
+                <aside class="notes">
+                    Now that you've seen the open source GIS ecosystem, please complete Poll 3 about career relevance. 
+                    This helps me understand your motivations—whether open source is central to your career goals or 
+                    something you're exploring. There's no wrong answer! Your honest response helps me tailor examples 
+                    to be most relevant to your professional trajectory. Takes just one minute. Link is in Module 1 Polls 
+                    on GitHub Discussions. Thanks!
+                </aside>
+            </section>
+
+            <!-- SLIDE 15: Summary -->
+            <section data-background-gradient="linear-gradient(to bottom, #667eea, #764ba2)">
+                <h2 style="color: white;">Key Takeaways</h2>
+                <div style="color: white; font-size: 0.8em; margin-top: 1.5em; text-align: left;">
+                    <p>✓ Open source GIS = Rich ecosystem (5 categories)</p>
+                    <p>✓ Professional-grade tools rival proprietary</p>
+                    <p>✓ Evaluation framework:<br>
+                       <span style="font-size: 0.9em; margin-left: 2em;">Project health + Community + Technical fit + License</span></p>
+                    <p>✓ Career-relevant skills</p>
+                    <p>✓ You now have the lens to explore!</p>
+                </div>
+                <div style="margin-top: 2em; color: white; font-size: 0.85em;">
+                    <p>🎯 <strong>Next:</strong> Activity 3 - Share your discoveries</p>
+                    <p>🔬 <strong>Then:</strong> M1A2 - Deep dive research</p>
+                </div>
+                <p style="margin-top: 2em; color: white; font-size: 1.2em;"><strong>Ready to explore? Let's go! 🚀</strong></p>
+                <aside class="notes">
+                    To wrap up: Open source GIS is a rich ecosystem across 5 major categories. These are professional-grade tools that rival proprietary software. You now have an evaluation framework—project health, community strength, technical fitness, and license considerations. These are career-relevant skills. You have the lens to explore intelligently. Head over to Activity 3 to start sharing discoveries with classmates, then dive into M1A2 research. The ecosystem is yours to explore. Let's go!
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/notes/notes.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            transition: 'slide',
+            plugins: [ RevealNotes ]
+        });
+    </script>
+</body>
+</html>

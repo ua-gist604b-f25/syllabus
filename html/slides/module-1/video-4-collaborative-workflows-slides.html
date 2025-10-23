@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Git Workflows (Web UI) - GIST 604B</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css">
+    <style>
+        .reveal h1 { font-size: 1.625em; margin-bottom: 0.3em; }
+        .reveal h2 { font-size: 1.17em; margin-bottom: 0.3em; }
+        .reveal h3 { font-size: 0.91em; margin-bottom: 0.2em; }
+        .reveal ul { font-size: 0.65em; }
+        .reveal li { margin: 0.25em 0; line-height: 1.3; }
+        .reveal p { font-size: 0.7em; margin: 0.4em 0; line-height: 1.3; }
+        .reveal pre { font-size: 0.5em; }
+        .reveal code { font-family: 'Courier New', monospace; background: #f5f5f5; padding: 0.1em 0.3em; font-size: 0.9em; }
+        .reveal section { text-align: left; }
+        .reveal h1, .reveal h2, .reveal h3 { text-align: center; }
+        .diagram-box { border: 2px solid #333; padding: 0.6em; margin: 0.4em 0; background-color: #f8f9fa; }
+        .flow-diagram { font-family: monospace; font-size: 0.6em; line-height: 1.4; }
+        .step-box { background: #e3f2fd; border-left: 4px solid #2196F3; padding: 0.4em; margin: 0.3em 0; font-size: 0.9em; }
+        .cmd-box { background: #263238; color: #aed581; padding: 0.5em; border-radius: 4px; font-family: monospace; font-size: 0.6em; }
+        .good-comment { border-left: 4px solid #4CAF50; background-color: #e8f5e9; padding: 0.4em; margin: 0.2em 0; font-size: 0.85em; }
+        .bad-comment { border-left: 4px solid #f44336; background-color: #ffebee; padding: 0.4em; margin: 0.2em 0; font-size: 0.85em; }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- SLIDE 1: Title -->
+            <section>
+                <h1>Collaborative Git Workflows</h1>
+                <h3>Module 1 - GIST 604B</h3>
+                <p style="text-align: center;">Professional Collaboration Using GitHub Web Interface</p>
+                <p style="text-align: center; font-size: 0.75em; margin-top: 1em; color: #666;">
+                    No command line required—learn through point-and-click
+                </p>
+                <aside class="notes">
+                    Today we're covering collaborative Git workflows using GitHub's web interface—how professional development 
+                    teams and open source projects coordinate changes. This is how you'll contribute to QGIS, PostGIS, GDAL, 
+                    and any open source GIS project. We'll focus on the web UI so you can start contributing immediately without 
+                    command line knowledge.
+                </aside>
+            </section>
+
+            <!-- SLIDE 2: The Problem -->
+            <section>
+                <h2>The Challenge: Multiple Developers</h2>
+                <div style="font-size: 0.8em;">
+                    <p><strong>🤔 Questions to Answer:</strong></p>
+                    <ul>
+                        <li>How do multiple people edit the same codebase?</li>
+                        <li>How to coordinate changes without chaos?</li>
+                        <li>How to review quality before merging?</li>
+                        <li>How to preserve stable code while developing?</li>
+                        <li>How to contribute to projects you don't own?</li>
+                    </ul>
+                    <div style="margin-top: 1.5em; background: #e8f5e9; border-left: 4px solid #4CAF50; padding: 0.8em;">
+                        <strong>✅ The Solution: Git Workflows</strong><br>
+                        Branching, Pull Requests, Code Review, Merge Strategies
+                    </div>
+                </div>
+                <aside class="notes">
+                    When multiple people work on code, we need coordination. Git workflows solve this through branching 
+                    (isolated development), pull requests (propose changes), code review (quality gates), and merge strategies 
+                    (integrate safely).
+                </aside>
+            </section>
+
+            <!-- SLIDE 3: Real-World Context -->
+            <section>
+                <h2>This is How Professionals Work</h2>
+                <ul style="font-size: 0.75em;">
+                    <li><strong>🗺️ QGIS, PostGIS, GDAL</strong><br>
+                        Accept contributions using these exact workflows
+                    </li>
+                    <li><strong>💼 Professional Teams</strong><br>
+                        Google, Microsoft, Planet—all use this model
+                    </li>
+                    <li><strong>🌍 Open Source Contribution</strong><br>
+                        This is how you'll contribute to real projects
+                    </li>
+                    <li><strong>🎯 Employer Expectations</strong><br>
+                        These workflows are job requirements
+                    </li>
+                </ul>
+                <p style="text-align: center; margin-top: 1em; font-size: 0.9em;">
+                    <strong>Collaborative workflows enable quality code at scale</strong>
+                </p>
+                <aside class="notes">
+                    This isn't academic—this is exactly how QGIS accepts contributions, how professional teams work, 
+                    how you'll contribute to open source, and what employers expect you to know.
+                </aside>
+            </section>
+
+            <!-- SLIDE 4: Understanding Branches -->
+            <section>
+                <h2>Understanding Branches</h2>
+                <div class="diagram-box" style="padding: 1.5em;">
+                    <div style="font-family: sans-serif; font-size: 0.8em;">
+                        <div style="margin-bottom: 1.5em;">
+                            <div style="background: #4CAF50; color: white; padding: 0.5em 1em; border-radius: 4px; display: inline-block; margin-bottom: 0.3em;">
+                                <strong>main</strong> (stable)
+                            </div>
+                            <div style="background: #ddd; height: 4px; width: 100%; margin: 0.3em 0;"></div>
+                            <div style="font-size: 0.85em; color: #666;">● commit → ● commit → ● commit → ● commit → ● commit</div>
+                        </div>
+                        <div style="margin-bottom: 1.5em; margin-left: 3em;">
+                            <div style="background: #2196F3; color: white; padding: 0.5em 1em; border-radius: 4px; display: inline-block; margin-bottom: 0.3em;">
+                                <strong>feature/add-postgis</strong>
+                            </div>
+                            <div style="background: #2196F3; height: 4px; width: 80%; margin: 0.3em 0;"></div>
+                            <div style="font-size: 0.85em; color: #666;">↗ branch → ● work → ● work → ● work</div>
+                        </div>
+                        <div style="margin-left: 3em;">
+                            <div style="background: #FF9800; color: white; padding: 0.5em 1em; border-radius: 4px; display: inline-block; margin-bottom: 0.3em;">
+                                <strong>fix/bug</strong>
+                            </div>
+                            <div style="background: #FF9800; height: 4px; width: 70%; margin: 0.3em 0;"></div>
+                            <div style="font-size: 0.85em; color: #666;">↗ branch → ● fix → ● test</div>
+                        </div>
+                    </div>
+                </div>
+                <ul style="font-size: 0.75em; margin-top: 1em;">
+                    <li><strong>Parallel timelines</strong> of code development</li>
+                    <li><strong>main</strong> = stable, production-ready</li>
+                    <li><strong>Feature branches</strong> = work in progress</li>
+                    <li>Branches are <strong>cheap and easy</strong>—use liberally!</li>
+                </ul>
+                <p style="text-align: center; margin-top: 0.8em; font-size: 0.8em;">
+                    <strong>💡 Branches let you experiment without breaking stable code</strong>
+                </p>
+                <aside class="notes">
+                    Branches are parallel timelines of development. Main branch stays stable while you experiment in feature branches. 
+                    Branches are cheap—create them freely. This is fundamental to professional collaboration.
+                </aside>
+            </section>
+
+            <!-- SLIDE 5: Branch Naming Conventions -->
+            <section>
+                <h2>Branch Naming Conventions</h2>
+                <div style="font-size: 0.75em;">
+                    <div class="step-box">
+                        <code>feature/add-postgis-layer</code><br>
+                        <span style="font-size: 0.9em;">New functionality</span>
+                    </div>
+                    <div class="step-box">
+                        <code>fix/coordinate-precision-bug</code><br>
+                        <span style="font-size: 0.9em;">Bug fixes</span>
+                    </div>
+                    <div class="step-box">
+                        <code>docs/update-installation</code><br>
+                        <span style="font-size: 0.9em;">Documentation updates</span>
+                    </div>
+                    <div class="step-box">
+                        <code>experiment/leaflet-alternative</code><br>
+                        <span style="font-size: 0.9em;">Trying new approaches</span>
+                    </div>
+                </div>
+                <div style="background: #e3f2fd; border-left: 4px solid #2196F3; padding: 1em; margin-top: 1em; font-size: 0.75em;">
+                    <strong>🖱️ Creating Branches on GitHub:</strong><br>
+                    1. Click the branch dropdown (shows "main")<br>
+                    2. Type your new branch name: <code>feature/add-spatial-query</code><br>
+                    3. Click "Create branch: feature/add-spatial-query"<br>
+                    4. You're now on your new branch—ready to edit files!
+                </div>
+                <aside class="notes">
+                    Use clear, descriptive branch names with prefixes. feature/ for new functionality, fix/ for bugs, 
+                    docs/ for documentation. On GitHub, you create branches using the branch dropdown—just type the name 
+                    and click create. This makes it immediately clear what each branch is for.
+                </aside>
+            </section>
+
+            <!-- SLIDE 6: Fork-and-Pull-Request Model -->
+            <section>
+                <h2>The Fork-and-Pull-Request Model</h2>
+                <div style="display: flex; align-items: flex-start; gap: 2em; margin-top: 1em;">
+                    <!-- Left column: Flow diagram -->
+                    <div style="flex: 1; font-size: 0.7em;">
+                        <div class="diagram-box" style="padding: 1em;">
+                            <div style="line-height: 1.8;">
+                                <div style="background: #4CAF50; color: white; padding: 0.5em 1em; border-radius: 4px; margin-bottom: 0.5em;">
+                                    <strong>Original Repository</strong><br>
+                                    <span style="font-size: 0.85em;">github.com/qgis/QGIS</span>
+                                </div>
+                                <div style="padding-left: 1em; font-size: 0.9em; margin: 0.3em 0;">
+                                    ↓ <strong>1. Fork</strong>
+                                </div>
+                                <div style="background: #2196F3; color: white; padding: 0.5em 1em; border-radius: 4px; margin: 0.3em 0;">
+                                    <strong>Your Fork</strong><br>
+                                    <span style="font-size: 0.85em;">yourusername/QGIS</span>
+                                </div>
+                                <div style="padding-left: 1em; font-size: 0.9em; margin: 0.3em 0;">
+                                    ↓ <strong>2-4. Edit (web UI)</strong>
+                                </div>
+                                <div style="background: #FF9800; color: white; padding: 0.5em 1em; border-radius: 4px; margin: 0.3em 0;">
+                                    <strong>Pull Request</strong>
+                                </div>
+                                <div style="padding-left: 1em; font-size: 0.9em; margin: 0.3em 0;">
+                                    ↓ <strong>5-6. Review</strong>
+                                </div>
+                                <div style="background: #8BC34A; color: white; padding: 0.5em 1em; border-radius: 4px; margin-top: 0.3em;">
+                                    <strong>✨ Merged!</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right column: Steps detail -->
+                    <div style="flex: 1; font-size: 0.65em;">
+                        <h3 style="margin-top: 0; font-size: 1.2em;">The Steps:</h3>
+                        <ol style="line-height: 1.6; margin: 0; padding-left: 1.5em;">
+                            <li><strong>Fork:</strong> Click "Fork" button</li>
+                            <li><strong>Branch:</strong> Create feature branch</li>
+                            <li><strong>Edit:</strong> Make changes in web UI</li>
+                            <li><strong>Commit:</strong> Save with message</li>
+                            <li><strong>PR:</strong> Create pull request</li>
+                            <li><strong>Review:</strong> Discuss & iterate</li>
+                            <li><strong>Merge:</strong> Code accepted! 🎉</li>
+                        </ol>
+                        <div style="margin-top: 1em; padding: 0.8em; background: #e3f2fd; border-radius: 4px;">
+                            <strong>Key Point:</strong> All done through GitHub's web interface—no command line required!
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center; font-size: 0.7em; margin-top: 0.5em;">
+                    <strong>This is how you contribute to projects you don't have write access to</strong>
+                </p>
+                <aside class="notes">
+                    The fork-and-PR model is fundamental to open source. You fork to create your personal copy on GitHub. 
+                    Then work entirely in the web UI—create branch, edit files, commit changes. Create a pull request to propose 
+                    changes to the original repo. After code review and any iterations, maintainer merges and your code is in QGIS. 
+                    All done through GitHub's web interface.
+                </aside>
+            </section>
+
+            <!-- SLIDE 7: Step-by-Step Fork-and-PR (Web UI) -->
+            <section>
+                <h2>Fork-and-PR: Step by Step (Web UI)</h2>
+                <div style="font-size: 0.68em;">
+                    <div class="step-box">
+                        <strong>1. Fork:</strong> Click "Fork" button (top-right) on GitHub repository<br>
+                        <span style="font-style: italic;">Creates your personal copy at github.com/yourusername/project-name</span>
+                    </div>
+                    <div class="step-box">
+                        <strong>2. Create Branch:</strong> In your fork, click branch dropdown → type branch name → create<br>
+                        <span style="font-style: italic;">Example: <code>feature/improve-documentation</code></span>
+                    </div>
+                    <div class="step-box">
+                        <strong>3. Edit Files:</strong> Navigate to file → click pencil icon (✏️) → make changes<br>
+                        <span style="font-style: italic;">GitHub's web editor lets you edit directly in browser</span>
+                    </div>
+                    <div class="step-box">
+                        <strong>4. Commit Changes:</strong> At bottom of editor:<br>
+                        • Write commit message: "Improve installation documentation clarity"<br>
+                        • Select "Commit directly to feature/improve-documentation branch"<br>
+                        • Click "Commit changes"
+                    </div>
+                    <div class="step-box">
+                        <strong>5. Create Pull Request:</strong> GitHub shows banner "Compare & pull request" → click it<br>
+                        <span style="font-style: italic;">Or go to original repo → Pull Requests → New Pull Request</span>
+                    </div>
+                    <div class="step-box">
+                        <strong>6. Code Review:</strong> Maintainers review, leave comments<br>
+                        <strong>7. Iterate:</strong> Make more edits via web UI if needed<br>
+                        <strong>8. Merge:</strong> Maintainer clicks "Merge pull request" → Your code is in!
+                    </div>
+                </div>
+                <aside class="notes">
+                    The complete web UI workflow: Fork on GitHub creates your copy. Create branch in your fork. Edit files using 
+                    the web editor—just click the pencil icon. Commit your changes with a message. Create pull request—GitHub 
+                    shows you a convenient banner. Respond to code review by making more edits. When approved, maintainer merges 
+                    and your code is in the project. All of this without ever leaving the browser.
+                </aside>
+            </section>
+
+            <!-- SLIDE 8: Anatomy of a Good PR -->
+            <section>
+                <h2>Anatomy of a Good Pull Request</h2>
+                <div style="font-size: 0.7em;">
+                    <div class="good-comment">
+                        <strong>✅ Clear Title:</strong><br>
+                        "Add support for GeoJSON export in QGIS plugin"
+                    </div>
+                    <div style="background: #f5f5f5; padding: 0.8em; margin: 0.5em 0; border-radius: 4px;">
+                        <strong>Description Template:</strong>
+                        <pre style="margin: 0.3em 0;">## Description
+Adds CSV export functionality to spatial analysis results
+
+## Motivation
+Users requested ability to export for Excel (#42)
+
+## Changes
+- Added export_to_csv() function in utils.py
+- Updated UI with "Export" button
+- Added tests for CSV generation
+- Updated README with export documentation
+
+## Testing
+- Manual testing with sample datasets
+- All existing tests pass
+- New tests added for CSV export</pre>
+                    </div>
+                </div>
+                <p style="text-align: center; font-size: 0.8em; margin-top: 0.5em;">
+                    <strong>Good PRs get merged; poor PRs get ignored</strong>
+                </p>
+                <aside class="notes">
+                    A good PR has a clear title, detailed description explaining what, why, and how, shows testing, and includes 
+                    screenshots if relevant. This makes review easier and increases chances of acceptance.
+                </aside>
+            </section>
+
+            <!-- SLIDE 9: PR Best Practices -->
+            <section>
+                <h2>Pull Request Best Practices</h2>
+                <ul style="font-size: 0.75em;">
+                    <li><strong>📝 Clear Title:</strong> Descriptive and specific<br>
+                        <span style="font-size: 0.9em;">Good: "Add GeoJSON export" | Bad: "Update code"</span>
+                    </li>
+                    <li><strong>📋 Detailed Description:</strong> What, why, how, testing<br>
+                        <span style="font-size: 0.9em;">Help reviewers understand your changes</span>
+                    </li>
+                    <li><strong>🎯 Small, Focused Changes:</strong> One PR = one feature<br>
+                        <span style="font-size: 0.9em;">Easier to review = faster to merge</span>
+                    </li>
+                    <li><strong>✨ Clean Commit History:</strong> Logical, atomic commits<br>
+                        <span style="font-size: 0.9em;">Tell a story of development</span>
+                    </li>
+                    <li><strong>🖼️ Screenshots:</strong> If UI changes<br>
+                        <span style="font-size: 0.9em;">Visual confirmation helps reviewers</span>
+                    </li>
+                </ul>
+                <aside class="notes">
+                    Keep PRs small and focused—one feature or fix per PR. Write clear descriptions. Clean commit history. 
+                    Add screenshots for UI changes. These practices make your PRs mergeable.
+                </aside>
+            </section>
+
+            <!-- SLIDE 10: Code Review - As Reviewer -->
+            <section>
+                <h2>Code Review Best Practices</h2>
+                <h3 style="font-size: 1.1em;">As a Reviewer:</h3>
+                <ul style="font-size: 0.75em;">
+                    <li>✅ Be respectful and constructive</li>
+                    <li>✅ Focus on code, not person</li>
+                    <li>✅ Explain "why" when requesting changes</li>
+                    <li>✅ Acknowledge good work</li>
+                    <li>✅ Suggest alternatives, don't just criticize</li>
+                    <li>✅ Review promptly (contributors are waiting)</li>
+                </ul>
+                <div class="good-comment" style="margin-top: 1em; font-size: 0.7em;">
+                    <strong>✅ Good Review Comment:</strong><br>
+                    "Nice work on the spatial indexing! One suggestion: Consider using R-tree 
+                    instead of quad-tree here for better performance with dense point clouds. 
+                    See: [link to documentation]"
+                </div>
+                <div class="bad-comment" style="font-size: 0.7em;">
+                    <strong>❌ Bad Review Comment:</strong><br>
+                    "This is wrong. Change it."
+                </div>
+                <aside class="notes">
+                    As a reviewer, be respectful and constructive. Focus on code, not the person. Explain why you're suggesting 
+                    changes. Acknowledge good work. The goal is collaborative teaching, not criticism.
+                </aside>
+            </section>
+
+            <!-- SLIDE 11: Code Review - As Contributor -->
+            <section>
+                <h2>Receiving Code Review</h2>
+                <h3 style="font-size: 1.1em;">As a Contributor:</h3>
+                <ul style="font-size: 0.75em;">
+                    <li>✅ Don't take feedback personally</li>
+                    <li>✅ Ask questions if unclear</li>
+                    <li>✅ Discuss trade-offs professionally</li>
+                    <li>✅ Iterate based on feedback</li>
+                    <li>✅ Say thank you for thorough reviews</li>
+                </ul>
+                <div style="background: #e3f2fd; border-left: 4px solid #2196F3; padding: 0.8em; margin-top: 1em; font-size: 0.75em;">
+                    <strong>💡 Remember:</strong> Code review is collaborative teaching, not criticism.<br>
+                    Every reviewer was once a beginner receiving feedback.
+                </div>
+                <p style="text-align: center; margin-top: 1em; font-size: 0.8em;">
+                    <strong>Professional developers welcome constructive feedback</strong>
+                </p>
+                <aside class="notes">
+                    When receiving review, don't take it personally. Ask questions. Discuss trade-offs professionally. Iterate. 
+                    Say thank you. Code review is how we all improve. Every professional developer welcomes constructive feedback.
+                </aside>
+            </section>
+
+            <!-- SLIDE 12: Merge Conflicts - What Are They? -->
+            <section>
+                <h2>Understanding Merge Conflicts</h2>
+                <div style="font-size: 0.75em;">
+                    <p><strong>🤔 What Are Merge Conflicts?</strong></p>
+                    <ul>
+                        <li>Two people edited the same lines of code</li>
+                        <li>Git can't automatically merge</li>
+                        <li>You must manually decide which changes to keep</li>
+                    </ul>
+                    <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 0.8em; margin: 1em 0;">
+                        <strong>⚠️ Common Scenario:</strong><br>
+                        You're working on feature branch → Meanwhile, main branch updated → 
+                        Your branch now conflicts with main
+                    </div>
+                    <p><strong>💡 The Good News:</strong> Conflicts are normal! Resolution is a learned skill.</p>
+                </div>
+                <aside class="notes">
+                    Merge conflicts happen when two people edit the same lines. Git can't automatically decide which to keep. 
+                    This is completely normal—not a disaster. Resolution is a learned skill that becomes easy with practice.
+                </aside>
+            </section>
+
+            <!-- SLIDE 13: Resolving Merge Conflicts (Web UI) -->
+            <section>
+                <h2>Resolving Merge Conflicts (Web UI)</h2>
+                <div style="font-size: 0.68em;">
+                    <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 0.8em; margin-bottom: 0.8em;">
+                        <strong>⚠️ When Conflicts Occur:</strong> GitHub shows "This branch has conflicts that must be resolved"
+                    </div>
+                    <div class="step-box">
+                        <strong>1. Click "Resolve conflicts" button</strong> on the Pull Request page<br>
+                        <span style="font-style: italic;">GitHub opens web-based conflict editor</span>
+                    </div>
+                    <div style="background: #f5f5f5; padding: 0.8em; margin: 0.5em 0; border-radius: 4px;">
+                        <strong>2. GitHub shows conflict markers:</strong>
+                        <pre style="margin: 0.3em 0;"><<<<<<< your-feature-branch (your changes)
+result = calculate_distance(point1, point2)
+=======
+result = compute_spatial_distance(point1, point2)
+>>>>>>> main (their changes)</pre>
+                    </div>
+                    <div class="step-box">
+                        <strong>3. Edit in Web Editor:</strong><br>
+                        • Delete conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>)<br>
+                        • Keep your changes, their changes, or blend both<br>
+                        • Result: <code>result = compute_spatial_distance(point1, point2)</code>
+                    </div>
+                    <div class="step-box">
+                        <strong>4. Mark as resolved:</strong> Click "Mark as resolved" button<br>
+                        <strong>5. Commit merge:</strong> Click "Commit merge" button<br>
+                        <span style="font-style: italic;">✅ Conflict resolved! PR can now be merged</span>
+                    </div>
+                </div>
+                <aside class="notes">
+                    GitHub's web UI makes conflict resolution easier. When conflicts occur, click Resolve Conflicts button. 
+                    GitHub shows you the conflict markers. Edit directly in the browser—remove markers, choose which code to keep. 
+                    Mark as resolved, commit the merge. All done in the web UI—no command line needed.
+                </aside>
+            </section>
+
+            <!-- SLIDE 14: Preventing Conflicts -->
+            <section>
+                <h2>Preventing Merge Conflicts</h2>
+                <ul style="font-size: 0.8em;">
+                    <li><strong>🔄 Sync with main frequently</strong><br>
+                        Don't let your branch drift too far
+                    </li>
+                    <li><strong>⚡ Keep branches short-lived</strong><br>
+                        Merge quickly, don't leave branches open for weeks
+                    </li>
+                    <li><strong>💬 Communicate with team</strong><br>
+                        "I'm working on the auth module"
+                    </li>
+                    <li><strong>🎯 Small, focused changes</strong><br>
+                        Smaller PRs = fewer conflicts
+                    </li>
+                    <li><strong>👥 Divide work clearly</strong><br>
+                        Different developers, different files when possible
+                    </li>
+                </ul>
+                <p style="text-align: center; margin-top: 1em; font-size: 0.85em;">
+                    <strong>Prevention is easier than resolution!</strong>
+                </p>
+                <aside class="notes">
+                    Prevent conflicts by syncing frequently, keeping branches short-lived, communicating with your team, making 
+                    small focused changes, and dividing work clearly. Prevention is much easier than resolution.
+                </aside>
+            </section>
+
+            <!-- SLIDE 15: M1A4 Assignment Overview -->
+            <section>
+                <h2>Assignment: M1A4</h2>
+                <h3 style="font-size: 1.1em;">Practice Complete Fork-and-PR Workflow (Web UI Only)</h3>
+                <div style="font-size: 0.75em;">
+                    <p><strong>What You'll Do (All in GitHub Web UI):</strong></p>
+                    <ul>
+                        <li>Fork a partner's repository (or provided exercise repo)</li>
+                        <li>Create feature branch using branch dropdown</li>
+                        <li>Make meaningful GIS-related changes using web editor</li>
+                        <li>Write professional pull request with good description</li>
+                        <li>Review your partner's PR with constructive feedback</li>
+                        <li>Resolve any merge conflicts using web conflict editor</li>
+                    </ul>
+                    <p style="margin-top: 1em;"><strong>Skills Practiced (100% Web UI):</strong></p>
+                    <ul>
+                        <li>✅ Forking repositories</li>
+                        <li>✅ Creating and switching branches</li>
+                        <li>✅ Editing files in web editor</li>
+                        <li>✅ PR creation with clear descriptions</li>
+                        <li>✅ Code review (giving and receiving)</li>
+                        <li>✅ Web-based conflict resolution</li>
+                        <li>✅ Professional Git communication</li>
+                    </ul>
+                </div>
+                <p style="text-align: center; margin-top: 0.8em; font-size: 0.85em; background: #e3f2fd; padding: 0.5em; border-radius: 4px;">
+                    <strong>🎯 No command line required—all done through GitHub's web interface!</strong>
+                </p>
+                <aside class="notes">
+                    M1A4 lets you practice the complete workflow using only GitHub's web interface. No command line, no local Git—
+                    everything in the browser. You'll fork, create branches, edit files, create PRs, review code, and resolve conflicts. 
+                    By the end, you'll know professional Git workflows that work everywhere—the same patterns used at companies 
+                    and open source projects worldwide, whether you use web UI or command line later.
+                </aside>
+            </section>
+
+            <!-- SLIDE 16: Resources -->
+            <section>
+                <h2>Essential Resources</h2>
+                <div style="font-size: 0.75em; display: grid; grid-template-columns: 1fr 1fr; gap: 1em;">
+                    <div>
+                        <strong>GitHub Web UI Documentation:</strong>
+                        <ul>
+                            <li><a href="https://guides.github.com/introduction/flow/" target="_blank">GitHub Flow</a></li>
+                            <li><a href="https://docs.github.com/en/pull-requests" target="_blank">GitHub Pull Requests Guide</a></li>
+                            <li><a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github" target="_blank">Resolving Conflicts (Web UI)</a></li>
+                            <li><a href="https://opensource.guide/how-to-contribute/" target="_blank">How to Contribute to Open Source</a></li>
+                        </ul>
+                        <strong style="margin-top: 1em; display: block;">Optional Tools (Advanced):</strong>
+                        <ul style="font-size: 0.9em;">
+                            <li><a href="https://desktop.github.com/" target="_blank">GitHub Desktop</a> (GUI app)</li>
+                            <li>VSCode Git integration</li>
+                            <li style="color: #666;">Command line (not needed for this course)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong>Practice:</strong>
+                        <ul>
+                            <li><a href="https://github.com/firstcontributions/first-contributions" target="_blank">First Contributions</a></li>
+                            <li>Good First Issues in GIS projects</li>
+                            <li><strong>M1A4 assignment (web UI practice)</strong></li>
+                        </ul>
+                        <strong style="margin-top: 1em; display: block;">Real Examples:</strong>
+                        <ul>
+                            <li><a href="https://github.com/qgis/QGIS/pulls" target="_blank">QGIS Pull Requests</a></li>
+                            <li><a href="https://github.com/OSGeo/gdal/pulls" target="_blank">GDAL Pull Requests</a></li>
+                            <li><a href="https://github.com/geopandas/geopandas/pulls" target="_blank">GeoPandas Pull Requests</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1em; font-size: 0.8em; background: #e8f5e9; padding: 0.5em; border-radius: 4px;">
+                    <strong>💡 Focus on GitHub's web interface first—it's all you need to contribute!</strong>
+                </p>
+                <aside class="notes">
+                    Essential resources focus on GitHub's web interface: GitHub Flow guide, pull requests documentation, 
+                    web-based conflict resolution. Optional tools like GitHub Desktop exist but aren't needed. Practice with 
+                    First Contributions and M1A4. See real examples from QGIS, GDAL, GeoPandas—professionals use these same 
+                    workflows whether via web or command line.
+                </aside>
+            </section>
+
+            <!-- SLIDE 17: Summary -->
+            <section>
+                <h2>Key Takeaways</h2>
+                <ul style="font-size: 0.8em;">
+                    <li>✅ Collaborative workflows enable quality code at scale</li>
+                    <li>✅ Branches isolate work; PRs propose changes</li>
+                    <li>✅ GitHub web UI makes these workflows accessible</li>
+                    <li>✅ Good PRs are clear, focused, and well-tested</li>
+                    <li>✅ Code review is collaborative teaching</li>
+                    <li>✅ Merge conflicts are normal—web UI makes resolution easier</li>
+                    <li>✅ This is how you contribute to open source</li>
+                </ul>
+                <div style="background: #e3f2fd; border-left: 4px solid #2196F3; padding: 1em; margin: 1.5em 0; text-align: center;">
+                    <p style="font-size: 1.1em; margin: 0;"><strong>These are job-ready skills</strong></p>
+                    <p style="font-size: 0.9em; margin: 0.5em 0 0 0;">
+                        By completing M1A4 (100% web UI), you'll know professional Git workflows<br>
+                        used by developers worldwide—no command line needed!
+                    </p>
+                </div>
+                <p style="text-align: center; font-size: 0.9em;">
+                    Ready to collaborate? Let's practice in M1A4!
+                </p>
+                <aside class="notes">
+                    To wrap up: Collaborative workflows enable quality at scale. Branches isolate work, PRs propose changes. 
+                    GitHub's web UI makes these workflows accessible to everyone. Good PRs are clear and focused. Code review 
+                    is teaching. Conflicts are normal and the web UI makes resolution easier. This is how you contribute to 
+                    open source—and these are job-ready skills. Complete M1A4 using only the web interface to practice everything 
+                    we've covered!
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'slide',
+            plugins: [ RevealNotes ],
+            width: 1280,
+            height: 720,
+            margin: 0.1
+        });
+    </script>
+</body>
+</html>
+

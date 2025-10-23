@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Source Philosophy & Licenses - GIST 604B</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css">
+    <style>
+        .reveal h1 { font-size: 1.625em; }
+        .reveal h2 { font-size: 1.17em; }
+        .reveal h3 { font-size: 0.91em; }
+        .reveal ul { font-size: 0.9em; }
+        .reveal li { margin: 0.5em 0; }
+        .reveal pre { font-size: 0.7em; }
+        .reveal .emoji { font-style: normal; }
+        .reveal section { text-align: left; }
+        .reveal h1, .reveal h2, .reveal h3 { text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- SLIDE 1: Title -->
+            <section>
+                <h1>Open Source Philosophy & Licenses</h1>
+                <h3>Module 1 - GIST 604B</h3>
+                <p style="text-align: center;">Why Licenses Matter for GIS Professionals</p>
+                <aside class="notes">
+                    Welcome to Module 1! Today we're diving into open source philosophy and licensing. 
+                    I know 'licensing' might sound dry, but this is one of the most practical professional 
+                    skills you'll gain. By the end, you'll understand why licenses matter, how they work, 
+                    and how to read them like a professional.
+                </aside>
+            </section>
+
+            <!-- SLIDE 2: What is Open Source? -->
+            <section>
+                <h2>What is "Open Source"?</h2>
+                <div style="display: flex; align-items: center; gap: 2em; margin-top: 1em;">
+                    <div style="flex: 1;">
+                        <h3>📖 Definition:</h3>
+                        <p>Source code that is:</p>
+                        <ul>
+                            <li>Available</li>
+                            <li>Modifiable</li>
+                            <li>Redistributable</li>
+                        </ul>
+                        <p style="margin-top: 1em;"><strong>💡 "Free as in FREEDOM, not free as in beer"</strong></p>
+                        <p style="font-style: italic;">(libre, not gratis)</p>
+                    </div>
+                    <div style="flex: 0 0 400px;">
+                        <img src="images/freebeer.jpg" alt="Free as in freedom, not free as in beer" style="width: 100%; height: auto; max-height: 500px; object-fit: contain;">
+                    </div>
+                </div>
+                <aside class="notes">
+                    At its core, open source means the source code is available, modifiable, and redistributable. 
+                    But here's the important nuance: when we say 'free software,' we're talking about FREEDOM—not price. 
+                    Think free speech, not free beer.
+                </aside>
+            </section>
+
+            <!-- SLIDE 3: Four Essential Freedoms -->
+            <section>
+                <h2>The Four Essential Freedoms</h2>
+                <ol>
+                    <li><strong>🎯 USE</strong> the software for any purpose</li>
+                    <li><strong>🔍 STUDY</strong> how it works and modify it</li>
+                    <li><strong>📤 REDISTRIBUTE</strong> copies to help others</li>
+                    <li><strong>🔄 DISTRIBUTE</strong> modified versions<br>
+                        <span style="font-size: 0.8em;">(so the community benefits)</span>
+                    </li>
+                </ol>
+                <aside class="notes">
+                    Open source guarantees you four essential freedoms. You can use the software for any purpose, 
+                    study and modify it, redistribute copies, and distribute your modified versions. 
+                    These freedoms are what make open source powerful.
+                </aside>
+            </section>
+
+            <!-- SLIDE 4: Real GIS Examples -->
+            <section>
+                <h2>Open Source Powers GIS</h2>
+                <ul>
+                    <li><strong>🗺️ QGIS</strong><br>Professional desktop GIS - zero license fees</li>
+                    <li><strong>🗄️ PostGIS</strong><br>Enterprise spatial databases at scale</li>
+                    <li><strong>🐧 Linux</strong><br>Powers web servers, Android, supercomputers</li>
+                    <li><strong>📊 GDAL</strong><br>Foundation of ALL geospatial software</li>
+                </ul>
+                <aside class="notes">
+                    Let me give you concrete examples. QGIS is professional-grade desktop GIS we'll use in Module 2—completely 
+                    open source. PostGIS powers spatial databases at companies like Uber. Linux runs most web servers and every 
+                    Android phone. And GDAL? It's the foundation that powers virtually every GIS tool you've ever used.
+                </aside>
+            </section>
+
+            <!-- SLIDE 5: Why Open Source Matters -->
+            <section>
+                <h2>Why This Matters for GIS Professionals</h2>
+                <ul style="font-size: 0.85em;">
+                    <li><strong>✅ Accessibility</strong><br>
+                        <span style="font-size: 0.9em;">No fees → Students, NGOs, developing nations</span>
+                    </li>
+                    <li><strong>✅ Transparency</strong><br>
+                        <span style="font-size: 0.9em;">Audit algorithms, understand methods</span>
+                    </li>
+                    <li><strong>✅ Customization</strong><br>
+                        <span style="font-size: 0.9em;">Modify tools for specific workflows</span>
+                    </li>
+                    <li><strong>✅ Career Development</strong><br>
+                        <span style="font-size: 0.9em;">Public portfolio, real contributions</span>
+                    </li>
+                    <li><strong>✅ Industry Reality</strong><br>
+                        <span style="font-size: 0.9em;">NASA, Google, Planet all use open source</span>
+                    </li>
+                </ul>
+                <aside class="notes">
+                    Why does this matter for GIS specifically? First, accessibility—no licensing fees means more organizations 
+                    can access powerful tools. Second, transparency—you can audit algorithms and understand exactly how analysis works. 
+                    Third, you can customize tools. And career-wise? Open source contributions are public portfolio pieces. 
+                    At Planet Labs where I work, we use open source libraries to process 50 terabytes of satellite data daily. 
+                    This is enterprise-grade infrastructure.
+                </aside>
+            </section>
+
+            <!-- SLIDE 6: Why Licenses Exist -->
+            <section>
+                <h2>The Problem Without Licenses</h2>
+                <ul style="font-size: 0.85em;">
+                    <li>❌ Unclear what users can legally do</li>
+                    <li>❌ Code might be "stolen" and closed</li>
+                    <li>❌ No protection for contributors</li>
+                    <li>❌ Legal uncertainty prevents adoption</li>
+                    <li>❌ Collaboration becomes impossible</li>
+                </ul>
+                <div style="margin-top: 1em; padding: 0.5em; background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                    <p style="margin: 0; font-size: 0.85em;"><strong>⚠️ Without a license = All Rights Reserved</strong></p>
+                    <p style="margin: 0.3em 0 0 0; font-size: 0.75em; font-style: italic;">
+                        "All Rights Reserved" = Default copyright<br>
+                        Nobody can use, modify, or distribute (even if public!)
+                    </p>
+                </div>
+                <aside class="notes">
+                    So if open source is about sharing, why do we need licenses? Because without a license, code is automatically 
+                    under exclusive copyright—"All Rights Reserved" means nobody can legally use it, even if you posted it publicly 
+                    on GitHub. Licenses don't restrict freedom; they enable it by providing clarity and legal protection.
+                </aside>
+            </section>
+
+            <!-- SLIDE 7: What Licenses Provide -->
+            <section>
+                <h2>Licenses Are ENABLERS, Not Barriers</h2>
+                <ul>
+                    <li><strong>✓ Clarity</strong> - Explicit permissions & obligations</li>
+                    <li><strong>✓ Protection</strong> - For creators AND users</li>
+                    <li><strong>✓ Trust</strong> - Known rules for collaboration</li>
+                    <li><strong>✓ Compatibility</strong> - What can be combined</li>
+                    <li><strong>✓ Legal Standing</strong> - Foundation if needed</li>
+                </ul>
+                <p style="margin-top: 1em; text-align: center;"><strong>💡 Think: "Rules of the road" for collaboration</strong></p>
+                <aside class="notes">
+                    Licenses provide clarity, protection, trust, compatibility, and legal standing. They're like the rules 
+                    of the road—they don't prevent you from driving, they make safe driving possible. Same with open source collaboration.
+                </aside>
+            </section>
+
+            <!-- SLIDE 8: License Spectrum -->
+            <section>
+                <h2>The License Spectrum</h2>
+                <pre style="font-size: 0.6em; text-align: center;">
+Public Domain ← Permissive ← Weak Copyleft ← Strong Copyleft
+    (CC0)         (MIT, BSD)     (LGPL, MPL)      (GPL, AGPL)
+
+Most Permissive ←──────────────────────────→ Most Protective
+                </pre>
+                <div style="margin-top: 1em; padding: 0.5em; background-color: #e7f3ff; border-left: 4px solid #2196F3;">
+                    <p style="margin: 0; font-size: 0.75em;">
+                        <strong>💡 Copyleft</strong> = "Share-alike" requirement<br>
+                        <span style="font-style: italic;">If you distribute modified versions, you must share them under the same license</span>
+                    </p>
+                </div>
+                <p style="text-align: center; margin-top: 0.5em; font-size: 0.9em;"><strong>All allow commercial use!</strong></p>
+                <p style="text-align: center; font-size: 0.85em;">Differ in sharing requirements for modifications</p>
+                <aside class="notes">
+                    Open source licenses exist on a spectrum from most permissive to most protective. On the left, permissive 
+                    licenses like MIT and BSD have minimal restrictions. On the right, copyleft licenses like GPL ensure derivatives 
+                    remain open through a "share-alike" requirement. Important: they ALL allow commercial use! The difference is 
+                    whether you must share modifications when you distribute them. Copyleft means if you distribute a modified 
+                    version, you must share it under the same open license.
+                </aside>
+            </section>
+
+            <!-- SLIDE 9: Permissive Licenses -->
+            <section>
+                <h2>Permissive Licenses: MIT, BSD, Apache</h2>
+                <ul style="font-size: 0.85em;">
+                    <li>✅ Minimal restrictions</li>
+                    <li>✅ Can be used in proprietary software</li>
+                    <li>✅ Main requirement: Attribution (give credit)</li>
+                    <li>✅ Maximum adoption strategy</li>
+                </ul>
+                <h3 style="font-size: 1.2em; margin-top: 0.5em;">Examples:</h3>
+                <ul style="font-size: 0.85em;">
+                    <li>Leaflet (web mapping) - BSD</li>
+                    <li>pandas (data analysis) - BSD</li>
+                    <li>React (Facebook) - MIT</li>
+                </ul>
+                <p style="margin-top: 0.5em; font-size: 0.9em;"><strong>💼 Companies love these: Low friction</strong></p>
+                <div style="display: flex; justify-content: center; gap: 2em; margin-top: 1em;">
+                    <img src="images/mit.png" alt="MIT License" style="height: 80px;">
+                    <img src="images/bsd.jpeg" alt="BSD License" style="height: 80px;">
+                    <img src="images/asf.png" alt="Apache Software Foundation" style="height: 80px;">
+                </div>
+                <aside class="notes">
+                    Permissive licenses like MIT are incredibly simple. You can use the code commercially, modify it, even 
+                    incorporate it into proprietary software. The main requirement? Give credit. That's it. This is why companies 
+                    love permissive licenses—low friction for adoption. Leaflet, pandas, React—all use permissive licenses to 
+                    maximize their reach.
+                </aside>
+            </section>
+
+            <!-- SLIDE 10: Copyleft Licenses -->
+            <section>
+                <h2>Copyleft Licenses: GPL, AGPL</h2>
+                <ul style="font-size: 0.85em;">
+                    <li>✅ "Share-alike" philosophy</li>
+                    <li>✅ Derivatives must remain open</li>
+                    <li>✅ Protects user freedoms forever</li>
+                    <li>✅ Community protection strategy</li>
+                </ul>
+                <h3 style="font-size: 1.2em; margin-top: 0.5em;">Examples:</h3>
+                <ul style="font-size: 0.85em;">
+                    <li>QGIS - GPL v2</li>
+                    <li>PostGIS - GPL v2</li>
+                    <li>Linux kernel - GPL v2</li>
+                </ul>
+                <p style="margin-top: 0.5em; font-size: 0.9em;"><strong>💡 Commercial use allowed!</strong><br>
+                <span style="font-size: 0.85em;">Restriction: Must share modifications if distributed</span></p>
+                <aside class="notes">
+                    Copyleft licenses take a different approach. The philosophy is 'share-alike'—if you distribute modified versions, 
+                    you must share them under the same license. This ensures the software stays open forever. QGIS uses GPL so no 
+                    company can take it, modify it, and sell a closed version. But notice: commercial use is absolutely allowed! 
+                    Red Hat makes billions selling Linux support. The restriction is about sharing modifications, not making money.
+                </aside>
+            </section>
+
+            <!-- SLIDE 11: Case Study - QGIS -->
+            <section>
+                <h2>Case Study: QGIS - GPL v2</h2>
+                <h3>Why GPL?</h3>
+                <ul>
+                    <li>Ensures QGIS stays open forever</li>
+                    <li>All plugins must be GPL-compatible</li>
+                    <li>Community investment protected</li>
+                </ul>
+                <h3>Can you...</h3>
+                <ul>
+                    <li>✅ Use commercially? <strong>YES</strong></li>
+                    <li>✅ Charge for QGIS? <strong>YES</strong></li>
+                    <li>✅ Modify it? <strong>YES</strong></li>
+                    <li>⚠️ Distribute modifications? <strong>Must share source</strong></li>
+                </ul>
+                <p style="margin-top: 0.5em;"><strong>Strategy: Protect the commons</strong></p>
+                <aside class="notes">
+                    Let's look at QGIS's license choice. They chose GPL to ensure the entire ecosystem—core software and plugins—remains 
+                    open. Can you use QGIS commercially? Absolutely. Many companies do. Can you charge for QGIS support or services? Yes! 
+                    The only restriction: if you distribute a modified version, you must share the source code. This protects the 
+                    community's investment.
+                </aside>
+            </section>
+
+            <!-- SLIDE 12: Case Study - Leaflet -->
+            <section>
+                <h2>Case Study: Leaflet - BSD 2-Clause</h2>
+                <h3>Why BSD?</h3>
+                <ul>
+                    <li>Maximize adoption everywhere</li>
+                    <li>Minimal barriers for companies</li>
+                    <li>Enable proprietary products built on top</li>
+                </ul>
+                <h3>Used by:</h3>
+                <ul>
+                    <li>Mapbox (commercial)</li>
+                    <li>CARTO (commercial)</li>
+                    <li>Facebook, GitHub, NPR</li>
+                </ul>
+                <p style="margin-top: 1em;"><strong>Strategy: Ubiquity through simplicity</strong></p>
+                <aside class="notes">
+                    Leaflet chose BSD—very permissive. Why? To maximize adoption. Companies like Mapbox and CARTO build proprietary 
+                    products on top of Leaflet, and that's fine. The goal is to be everywhere. Different strategy, equally valid.
+                </aside>
+            </section>
+
+            <!-- SLIDE 13: Case Study - GDAL -->
+            <section>
+                <h2>Case Study: GDAL - MIT/X License</h2>
+                <h3>Why MIT?</h3>
+                <ul>
+                    <li>Be the universal foundation</li>
+                    <li>Used by everyone, everywhere</li>
+                    <li>Broad integration across sectors</li>
+                </ul>
+                <h3>Users include:</h3>
+                <ul>
+                    <li>NASA, Google, Planet Labs</li>
+                    <li>Esri (proprietary GIS)</li>
+                    <li>Open source projects</li>
+                    <li>Academic institutions</li>
+                </ul>
+                <p style="margin-top: 1em;"><strong>Strategy: Universal infrastructure</strong></p>
+                <aside class="notes">
+                    GDAL chose MIT to be the universal geospatial foundation. NASA uses it. Google uses it. Even Esri uses it in 
+                    their proprietary software. Commercial and non-profit sectors both contribute because the permissive license 
+                    enables broad integration. Different goals require different license strategies.
+                </aside>
+            </section>
+
+            <!-- SLIDE 14: Practical Implications -->
+            <section>
+                <h2>What This Means for YOU</h2>
+                <div style="font-size: 0.85em;">
+                    <h3>As a User:</h3>
+                    <ul style="font-size: 0.9em;">
+                        <li>✓ Can I use commercially? (Usually YES!)</li>
+                        <li>✓ Do I need attribution? (Check license)</li>
+                        <li>✓ Can I modify? (YES, but sharing rules vary)</li>
+                    </ul>
+                    <h3>As a Contributor:</h3>
+                    <ul style="font-size: 0.9em;">
+                        <li>✓ What license for my project? (Choose strategically)</li>
+                        <li>✓ Can I contribute to GPL projects? (YES, if you agree)</li>
+                    </ul>
+                    <h3>As a Professional:</h3>
+                    <ul style="font-size: 0.9em;">
+                        <li>✓ License compliance matters in industry</li>
+                        <li>✓ Understanding = Informed tool selection</li>
+                        <li>✓ Professional competence signal</li>
+                    </ul>
+                </div>
+                <p style="text-align: center; margin-top: 0.5em;"><strong>💼 This is a career-relevant skill</strong></p>
+                <aside class="notes">
+                    So what does this mean for you? As a user, you'll encounter open source tools and need to understand your rights. 
+                    As a contributor—which you'll be in this course—you'll choose licenses for your own projects. And as a professional, 
+                    license knowledge helps you evaluate tools, ensure compliance, and make informed decisions. This isn't just academic; 
+                    it's career-relevant.
+                </aside>
+            </section>
+
+            <!-- SLIDE 15: Common Misconceptions -->
+            <section>
+                <h2>Common Misconceptions - BUSTED</h2>
+                <ul style="font-size: 0.85em;">
+                    <li>❌ "Open source = no commercial use"<br>
+                        <strong>✅ Most licenses explicitly ALLOW commercial use</strong></li>
+                    <li>❌ "GPL = can't charge money"<br>
+                        <strong>✅ GPL allows selling—just share modifications</strong></li>
+                    <li>❌ "MIT = public domain"<br>
+                        <strong>✅ MIT requires attribution (not public domain)</strong></li>
+                    <li>❌ "All open source licenses are the same"<br>
+                        <strong>✅ Significant differences in requirements</strong></li>
+                </ul>
+                <p style="margin-top: 1em; text-align: center;"><strong>💡 Read the license—don't assume!</strong></p>
+                <aside class="notes">
+                    Let me clear up some common misconceptions. Open source does NOT mean no commercial use—most licenses explicitly 
+                    allow it. GPL doesn't prevent charging money—Red Hat proves that. MIT is not public domain—you must give attribution. 
+                    And licenses have real differences. Always read the license; don't assume.
+                </aside>
+            </section>
+
+            <!-- SLIDE 16: Resources -->
+            <section>
+                <h2>Essential License Resources</h2>
+                <ul>
+                    <li><strong>🔗 choosealicense.com</strong><br>Plain English summaries</li>
+                    <li><strong>🔗 tldrlegal.com</strong><br>Software licenses explained simply</li>
+                    <li><strong>🔗 opensource.org/licenses</strong><br>OSI-approved licenses</li>
+                    <li><strong>🔗 GitHub license picker</strong><br>Built into repository creation</li>
+                </ul>
+                <p style="margin-top: 1em; text-align: center;"><strong>📚 Bookmark these now!</strong></p>
+                <aside class="notes">
+                    Here are essential resources. Choosealicense.com provides plain English summaries. TL;DR Legal explains licenses 
+                    simply. And GitHub has a license picker built in when you create repositories. Bookmark these—you'll use them 
+                    throughout your career.
+                </aside>
+            </section>
+
+            <!-- SLIDE 17: Poll 2 - Open Source Software Experience -->
+            <section>
+                <h2>📊 Quick Poll: Your Open Source Experience</h2>
+                <div style="background: #e3f2fd; border-left: 4px solid #2196F3; padding: 1.5em; margin: 1.5em 0; border-radius: 8px;">
+                    <h3 style="margin-top: 0;">✏️ Poll 2: Open Source Software Experience</h3>
+                    <p style="font-size: 0.9em; margin: 0.8em 0;">
+                        <strong>Question:</strong> How comfortable are you with open source software in general?
+                    </p>
+                    <p style="font-size: 0.85em; margin: 0.5em 0;">
+                        🆕 Brand new → 🔍 Aware but rarely use → 📚 Use some tools → 💼 Regular use → ⭐ Active contributor
+                    </p>
+                </div>
+                <div style="text-align: center; margin-top: 1.5em;">
+                    <p style="font-size: 1.1em;"><strong>⏱️ Takes 1 minute</strong></p>
+                    <p style="font-size: 0.9em; margin: 0.8em 0;">
+                        <a href="https://github.com/ua-gist604b-f25/syllabus/discussions/categories/module-1-polls" 
+                           target="_blank" 
+                           style="color: #2196F3; font-weight: bold;">
+                            → Vote in Module 1 Polls
+                        </a>
+                    </p>
+                    <p style="font-size: 0.85em; color: #666;">
+                        Your vote is anonymous • Helps instructor calibrate examples
+                    </p>
+                </div>
+                <aside class="notes">
+                    Before we move on, please take a moment to complete Poll 2 about your open source software experience. 
+                    This helps me understand where everyone is starting from—whether you're brand new to open source or already 
+                    active in communities. Takes just one minute. Your vote is anonymous, and the data helps me tailor examples 
+                    to the class. Link is in Module 1 Polls on GitHub Discussions. Thanks for participating!
+                </aside>
+            </section>
+
+            <!-- SLIDE 18: Next Steps -->
+            <section>
+                <h2>Next: M1A1 - Open Source License Analysis</h2>
+                <h3>What you'll do:</h3>
+                <ul>
+                    <li>📋 Compare MIT, GPL, Apache, BSD licenses</li>
+                    <li>🎯 Analyze realistic GIS scenarios</li>
+                    <li>💡 Make informed license decisions</li>
+                    <li>📝 Create structured analysis document</li>
+                </ul>
+                <p style="margin-top: 1em;">
+                    <strong>Time:</strong> 1.5-2 hours<br>
+                    <strong>Points:</strong> 8 points<br>
+                    <strong>Format:</strong> Practical scenarios, not abstract legal theory
+                </p>
+                <p style="text-align: center; margin-top: 1em;"><strong>Ready to apply this knowledge!</strong></p>
+                <aside class="notes">
+                    You're now ready for hands-on practice. M1A1 has you compare MIT, GPL, Apache, and BSD licenses through 
+                    realistic scenarios—not abstract legal theory. Questions like 'Can I use this library in my startup?' and 
+                    'What license should I choose for my GIS tool?' Real-world questions you'll encounter as a professional. 
+                    Should take about 1.5 to 2 hours. Accept the GitHub Classroom assignment to get started, and all instructions 
+                    are in your repository README.
+                </aside>
+            </section>
+
+            <!-- SLIDE 19: Summary -->
+            <section>
+                <h2>Key Takeaways</h2>
+                <ul>
+                    <li>✓ Open source = Freedom, not just free price</li>
+                    <li>✓ Licenses ENABLE collaboration through clarity</li>
+                    <li>✓ Permissive vs Copyleft = Different strategies</li>
+                    <li>✓ All major licenses allow commercial use</li>
+                    <li>✓ License literacy = Professional asset</li>
+                </ul>
+                <p style="margin-top: 1em; text-align: center; font-size: 1.2em;"><strong>🚀 The GIS industry runs on open source</strong></p>
+                <p style="text-align: center; margin-top: 0.5em;">Ready for M1A1? Let's go!</p>
+                <aside class="notes">
+                    To wrap up: open source is about freedom, not just free. Licenses enable collaboration by providing clarity 
+                    and trust. Different licenses serve different goals—permissive for maximum adoption, copyleft for protecting 
+                    openness. The GIS industry runs on open source, and understanding licenses makes you a more informed user, 
+                    better contributor, and more valuable professional. Alright, head over to M1A1 and put this knowledge 
+                    into practice!
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'slide',
+            plugins: [ RevealNotes ],
+            width: 1280,
+            height: 720,
+            margin: 0.1,
+            minScale: 0.2,
+            maxScale: 2.0
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIST 604B - Course Slides</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 2rem;
+        }
+        
+        .module-section {
+            margin-bottom: 3rem;
+        }
+        
+        .module-title {
+            font-size: 1.8rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .video-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+        
+        .video-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .video-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+        
+        .video-description {
+            color: #718096;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .instructions {
+            background: #e6f2ff;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+        
+        .instructions h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .instructions ul {
+            margin-left: 1.5rem;
+            color: #2d3748;
+        }
+        
+        .instructions li {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 2rem;
+            text-align: center;
+            color: #718096;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .keyboard-shortcuts {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            display: inline-block;
+            text-align: left;
+        }
+        
+        .keyboard-shortcuts h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+        
+        .keyboard-shortcuts ul {
+            list-style: none;
+            margin: 0;
+        }
+        
+        .keyboard-shortcuts li {
+            margin: 0.25rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .keyboard-shortcuts code {
+            background: #f1f5f9;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Course Slides</h1>
+            <p class="subtitle">GIST 604B - Open Source Geographic Information Systems</p>
+        </header>
+        
+        <div class="content">
+            <div class="instructions">
+                <h2>💡 How to Use These Slides</h2>
+                <ul>
+                    <li><strong>Navigate:</strong> Use arrow keys (← →) or click arrows on screen</li>
+                    <li><strong>Overview:</strong> Press <code>ESC</code> to see all slides</li>
+                    <li><strong>Fullscreen:</strong> Press <code>F</code> for fullscreen mode</li>
+                    <li><strong>Search:</strong> Press <code>Ctrl+Shift+F</code> to search slide content</li>
+                    <li><strong>Print/Save:</strong> Press <code>Ctrl+P</code> or <code>⌘+P</code> to print/save as PDF</li>
+                    <li><strong>Mobile:</strong> Swipe left/right to navigate</li>
+                </ul>
+            </div>
+            
+            <!-- Start Here -->
+            <div class="module-section">
+                <h2 class="module-title">🚀 Start Here</h2>
+                <div class="video-grid">
+                    <a href="start-here/video-0-slides.html" class="video-card">
+                        <div class="video-number">Video 0</div>
+                        <div class="video-title">About This Course</div>
+                        <div class="video-description">
+                            Course overview, learning objectives, and what to expect
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Module 1 -->
+            <div class="module-section">
+                <h2 class="module-title">🔄 Module 1: Open Source Git Workflows</h2>
+                <div class="video-grid">
+                    <a href="module-1/video-2-slides.html" class="video-card">
+                        <div class="video-number">Video 2</div>
+                        <div class="video-title">Open Source Philosophy & Licenses</div>
+                        <div class="video-description">
+                            Understanding open source principles, licensing models, and the four freedoms
+                        </div>
+                    </a>
+                    
+                    <a href="module-1/video-3-open-source-gis-slides.html" class="video-card">
+                        <div class="video-number">Video 3</div>
+                        <div class="video-title">Open Source GIS Ecosystem</div>
+                        <div class="video-description">
+                            Exploring the landscape of open source geospatial tools and communities
+                        </div>
+                    </a>
+                    
+                    <a href="module-1/video-3-repository-management-slides.html" class="video-card">
+                        <div class="video-number">Video 3</div>
+                        <div class="video-title">GitHub Repository Management</div>
+                        <div class="video-description">
+                            Repository structure, documentation, and project organization best practices
+                        </div>
+                    </a>
+                    
+                    <a href="module-1/video-4-collaborative-workflows-slides.html" class="video-card">
+                        <div class="video-number">Video 4</div>
+                        <div class="video-title">Collaborative Git Workflows</div>
+                        <div class="video-description">
+                            Branches, pull requests, and professional collaboration patterns
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="keyboard-shortcuts">
+                <h3>⌨️ Keyboard Shortcuts (when viewing slides)</h3>
+                <ul>
+                    <li><code>→</code> / <code>←</code> - Next / Previous slide</li>
+                    <li><code>ESC</code> - Slide overview</li>
+                    <li><code>F</code> - Fullscreen</li>
+                    <li><code>S</code> - Speaker notes (if available)</li>
+                    <li><code>Ctrl+Shift+F</code> - Search slides</li>
+                </ul>
+            </div>
+            <p style="margin-top: 1.5rem;">
+                <strong>University of Arizona</strong> • Fall 2025 • 7W2 Session
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About This Course - GIST 604B</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css">
+    <style>
+        .reveal h1 { font-size: 2.5em; }
+        .reveal h2 { font-size: 1.8em; }
+        .reveal h3 { font-size: 1.4em; }
+        .reveal ul { font-size: 0.85em; }
+        .reveal li { margin: 0.4em 0; }
+        .reveal section { text-align: left; }
+        .reveal h1, .reveal h2, .reveal h3 { text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- SLIDE 1: Title -->
+            <section>
+                <h1>GIST 604B</h1>
+                <h2>Advanced GIS with Open Source Software</h2>
+                <p style="text-align: center; margin-top: 2em;">Welcome to Your Gateway to Professional Open Source GIS</p>
+                <aside class="notes">
+                    Hi everyone! Welcome to GIST 604B. I'm Dr. Aaryn Olsson, and I'm genuinely excited to work with you this semester.
+                </aside>
+            </section>
+
+            <!-- SLIDE 2: About Your Instructor -->
+            <section>
+                <h2>Meet Your Instructor</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; align-items: center;">
+                    <div>
+                        <h3>Dr. Aaryn Olsson</h3>
+                        <ul style="font-size: 0.75em;">
+                            <li><strong>Education:</strong> BS Math, MS Renewable Natural Resources, PhD Arid Lands Resource Sciences (UA)</li>
+                            <li><strong>Current:</strong> Senior Software Engineer at <a href="https://planet.com">Planet Labs</a></li>
+                            <li><strong>Work:</strong> Processing 50+ TB of satellite imagery daily from 200+ satellites</li>
+                            <li><strong>Experience:</strong> National Geospatial-Intelligence Agency (NGA), Boundless Spatial</li>
+                        </ul>
+                        <p style="margin-top: 1em; font-size: 0.8em;"><strong>💡 You're learning from someone who uses these tools daily in production</strong></p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="images/instructor-arizona-landscape.png" style="max-width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
+                        <p style="font-size: 0.7em; margin-top: 0.5em; font-style: italic; color: #666;">Arizona landscape — home of arid lands research</p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Let me tell you about myself. I'm a Senior Software Engineer at Planet Labs, where I work on distributed computing 
+                    systems processing satellite imagery at massive scale. The tools we'll use in this course? These are the same tools 
+                    I use every day at Planet. This isn't just theory—it's real-world professional practice. And yes, that's me on an 
+                    Arizona mountain—I did my PhD in Arid Lands Resource Sciences right here at UA!
+                </aside>
+            </section>
+
+            <!-- SLIDE 3: Course Modules -->
+            <section>
+                <h2>What We'll Learn This Semester</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; align-items: center;">
+                    <ul style="font-size: 0.7em;">
+                        <li><strong>Module 1: Open Source & Git Workflows</strong><br>
+                            <span style="font-size: 0.9em;">Version control, GitHub collaboration</span>
+                        </li>
+                        <li><strong>Module 2: QGIS - Desktop GIS</strong><br>
+                            <span style="font-size: 0.9em;">Professional desktop GIS analysis</span>
+                        </li>
+                        <li><strong>Module 3: Python GIS & Containerization</strong><br>
+                            <span style="font-size: 0.9em;">GeoPandas/Rasterio, Docker</span>
+                        </li>
+                        <li><strong>Module 4: PostGIS - Database Orchestration</strong><br>
+                            <span style="font-size: 0.9em;">Enterprise spatial databases</span>
+                        </li>
+                        <li><strong>Module 5: Web GIS - Fullstack Orchestration</strong><br>
+                            <span style="font-size: 0.9em;">Interactive web mapping with Leaflet</span>
+                        </li>
+                        <li><strong>Module 6: AI & GIS - Containerized Workflows</strong><br>
+                            <span style="font-size: 0.9em;">AI-enhanced geospatial analysis</span>
+                        </li>
+                    </ul>
+                    <div style="text-align: center;">
+                        <img src="images/open-source-software-stack.png" style="max-width: 100%; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
+                        <p style="font-size: 0.7em; margin-top: 0.5em; font-style: italic; color: #666;">Complete modern GIS development stack</p>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1.5em; margin-top: 1em;">
+                            <div style="text-align: center;">
+                                <img src="images/codespaces-logo.png" style="height: 60px;">
+                                <p style="font-size: 0.6em; margin-top: 0.3em;">GitHub Codespaces</p>
+                            </div>
+                            <span style="font-size: 1.5em; color: #667eea;">→</span>
+                            <div style="text-align: center;">
+                                <img src="images/docker-logo.png" style="height: 60px;">
+                                <p style="font-size: 0.6em; margin-top: 0.3em;">Docker</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    We'll cover the complete modern GIS development stack: Git/GitHub, QGIS, Python spatial analysis, PostGIS databases, 
+                    web mapping with Leaflet, and AI integration for GIS. Look at all these tools—every single one is open source and 
+                    professional-grade.
+                </aside>
+            </section>
+
+            <!-- SLIDE 4: The Containerization Journey -->
+            <section>
+                <h2>The Containerization Journey</h2>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 2em; margin: 2em 0;">
+                    <div style="text-align: center;">
+                        <img src="images/github-logo.webp" style="height: 70px;">
+                        <p style="font-size: 0.7em; margin-top: 0.5em;"><strong>GitHub</strong><br>Codespaces</p>
+                    </div>
+                    <span style="font-size: 2em; color: #667eea;">→</span>
+                    <div style="text-align: center;">
+                        <img src="images/docker-logo.png" style="height: 70px;">
+                        <p style="font-size: 0.7em; margin-top: 0.5em;"><strong>Docker</strong><br>Containers</p>
+                    </div>
+                    <span style="font-size: 2em; color: #667eea;">→</span>
+                    <div style="text-align: center;">
+                        <p style="font-size: 2.5em; margin: 0;">🚀</p>
+                        <p style="font-size: 0.7em; margin-top: 0.5em;"><strong>Full</strong><br>Orchestration</p>
+                    </div>
+                </div>
+                <p style="font-size: 0.85em; text-align: center; margin-top: 2em;">By the end of this course, you'll be deploying <strong>professional, containerized GIS applications</strong></p>
+                <p style="font-size: 0.85em; text-align: center; margin-top: 1em;">These are <strong>portfolio pieces</strong> that demonstrate real-world technical skills</p>
+                <aside class="notes">
+                    But here's the real journey: we're going from GitHub Codespaces to Docker to full container orchestration. 
+                    By the end, you'll deploy professional, containerized GIS applications—portfolio pieces demonstrating real-world skills.
+                </aside>
+            </section>
+
+            <!-- SLIDE 5: GitHub-Centered Approach -->
+            <section>
+                <h2>Our Novel Approach: GitHub-Centered</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; align-items: center;">
+                    <div>
+                        <h3 style="font-size: 1.2em;">Why GitHub?</h3>
+                        <ul style="font-size: 0.8em;">
+                            <li><strong>Professional Skill:</strong> Employers actively look for GitHub profiles</li>
+                            <li><strong>Portfolio Development:</strong> Your GitHub profile = your technical resume</li>
+                            <li><strong>Real-World Workflows:</strong> Work like professional development teams</li>
+                            <li><strong>Community Learning:</strong> Collaborate like open source communities</li>
+                        </ul>
+                        <p style="margin-top: 1em; text-align: center; font-size: 0.9em;">
+                            <strong>Everything you create is portfolio-ready from Day 1</strong>
+                        </p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="images/git-graph.png" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.2);">
+                        <p style="font-size: 0.7em; margin-top: 0.5em; font-style: italic; color: #666;">Git collaboration workflow</p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    We're GitHub-centered. Your GitHub profile is increasingly your technical resume. When you apply for GIS developer 
+                    positions, employers will look at your GitHub profile. Everything you create will be portfolio-ready from Day 1.
+                    Look at this Git workflow diagram—this is how professional teams collaborate on code.
+                </aside>
+            </section>
+
+            <!-- SLIDE 6: Course Mechanics -->
+            <section>
+                <h2>How the Course Works</h2>
+                <ul style="font-size: 0.8em;">
+                    <li><strong>📝 GitHub Classroom</strong><br>
+                        Assignments with automated feedback (accept → work → auto-grade)
+                    </li>
+                    <li><strong>💬 GitHub Discussions</strong><br>
+                        Class interaction, Q&A, collaboration
+                    </li>
+                    <li><strong>📊 GitHub Polls</strong><br>
+                        Quick feedback and participation
+                    </li>
+                    <li><strong>📚 D2L</strong><br>
+                        Grades, announcements, course materials
+                    </li>
+                </ul>
+                <p style="margin-top: 1em; text-align: center; font-size: 0.9em;">
+                    <strong>The real work happens on GitHub—like professional teams</strong>
+                </p>
+                <aside class="notes">
+                    Assignments come through GitHub Classroom. Class interaction happens in GitHub Discussions. D2L is for grades 
+                    and announcements, but the real work happens on GitHub—the same workflow used by software teams at Google, 
+                    Microsoft, and Planet.
+                </aside>
+            </section>
+
+            <!-- SLIDE 7: Example GitHub Profile -->
+            <section data-background-color="#f8f9fa">
+                <h2>Professional GitHub Profiles</h2>
+                <div style="text-align: center;">
+                    <p style="font-size: 0.9em; margin: 1em 0;">Example: <a href="https://github.com/giswqs" target="_blank">Dr. Qiusheng Wu</a></p>
+                    <ul style="font-size: 0.75em; text-align: left; display: inline-block;">
+                        <li>Associate Professor + Amazon Scholar</li>
+                        <li>Creator of geemap (3.8k ⭐), leafmap (3.5k ⭐)</li>
+                        <li>7,000+ followers</li>
+                        <li>320 repositories</li>
+                    </ul>
+                </div>
+                <p style="margin-top: 1.5em; text-align: center; font-size: 0.85em;">
+                    <strong>This is the kind of portfolio that opens doors</strong>
+                </p>
+                <aside class="notes">
+                    Here's Dr. Qiusheng Wu's profile—an associate professor who's also an Amazon Scholar. Look at these open-source 
+                    GIS tools with thousands of stars. This is the kind of portfolio that opens doors.
+                </aside>
+            </section>
+
+            <!-- SLIDE 8: Course Format & Support -->
+            <section>
+                <h2>Course Format & Support</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; align-items: center;">
+                    <div style="font-size: 0.75em;">
+                        <h3 style="font-size: 1.1em;">Intensive 7-Week Format:</h3>
+                        <ul style="font-size: 0.95em;">
+                            <li>Mon/Tue/Thu meetings (2 hours each)</li>
+                            <li>Mix of instruction, demos, hands-on work</li>
+                            <li>All videos posted for online/asynchronous students</li>
+                            <li>Assignments and activities between sessions</li>
+                        </ul>
+                        <h3 style="font-size: 1.1em; margin-top: 1em;">You're Not Alone:</h3>
+                        <ul style="font-size: 0.95em;">
+                            <li>✅ Active GitHub Discussions community</li>
+                            <li>✅ Office hours available (in-person & virtual)</li>
+                            <li>✅ Collaborative projects with teammates</li>
+                            <li>✅ Instructor responsive via email and discussions</li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="images/online-learning.jpg" style="max-width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
+                        <p style="font-size: 0.6em; margin-top: 0.5em; font-style: italic; color: #666;">Image credit: Getty Images</p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    This is an intensive 7-week course. We meet Monday, Tuesday, Thursday for two hours each. For online or asynchronous 
+                    students, all videos are posted so you can keep up with the material. But you're not alone—we have active GitHub 
+                    Discussions, office hours (both in-person and virtual), collaborative projects, and I'm responsive via email.
+                </aside>
+            </section>
+
+            <!-- SLIDE 9: Getting Started -->
+            <section>
+                <h2>Get Started: Activity 0</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; align-items: center;">
+                    <div>
+                        <h3 style="font-size: 1.1em;">Before First Class:</h3>
+                        <ol style="font-size: 0.85em;">
+                            <li><strong>Complete Activity 0:</strong> GitHub account setup</li>
+                            <li><strong>Join GitHub Organization:</strong> Accept invitation</li>
+                            <li><strong>Introduce Yourself:</strong> Post in Discussions</li>
+                            <li><strong>Review Course Materials:</strong> Syllabus, Course Guide</li>
+                        </ol>
+                        <p style="margin-top: 1.5em; text-align: center; font-size: 0.9em;">
+                            <strong>Essential: We hit the ground running on Day 1!</strong>
+                        </p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="images/start-here.png" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.2);">
+                        <p style="font-size: 0.7em; margin-top: 0.5em; font-style: italic; color: #666;">Find Activity 0 in the "Start Here" section</p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    To get started, complete Activity 0 before first class—set up your GitHub account and join our course organization. 
+                    You'll find Activity 0 and all pre-course materials in the "Start Here" section. This is essential because we hit the ground running on Day 1.
+                </aside>
+            </section>
+
+            <!-- SLIDE 10: Open Source GIS Montage -->
+            <section data-background-color="#e8f4f8">
+                <h2>Open Source GIS is Transforming the Industry</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1em; margin-top: 1em;">
+                    <div style="text-align: center;">
+                        <img src="images/keplergl-example.png" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                        <p style="font-size: 0.65em; margin-top: 0.5em;"><strong>Kepler.gl</strong><br>Uber's big data viz</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="images/geemap-example.jpg" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                        <p style="font-size: 0.65em; margin-top: 0.5em;"><strong>geemap</strong><br>Interactive satellite analysis</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="images/hotosm-validation-example.png" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                        <p style="font-size: 0.65em; margin-top: 0.5em;"><strong>HOT OSM</strong><br>Disaster response mapping</p>
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 1em; max-width: 70%; margin-left: auto; margin-right: auto;">
+                    <div style="text-align: center;">
+                        <img src="images/hotosm-example.png" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                        <p style="font-size: 0.65em; margin-top: 0.5em;"><strong>OpenStreetMap</strong><br>The Wikipedia of maps</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="images/maplibre-example.jpg" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                        <p style="font-size: 0.65em; margin-top: 0.5em;"><strong>MapLibre</strong><br>Beautiful web mapping</p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Open source GIS is transforming the geospatial industry. Look at these real examples: Kepler.gl from Uber for 
+                    big data visualization, geemap from Dr. Wu for satellite analysis, HOT OSM for disaster response—literally 
+                    saving lives. You're joining a global community building the future of spatial analysis.
+                </aside>
+            </section>
+
+            <!-- SLIDE 11: Your Future -->
+            <section>
+                <h2>By the End of This Semester</h2>
+                <ul style="font-size: 0.85em;">
+                    <li>✅ GitHub profile showcasing real technical skills</li>
+                    <li>✅ Deployed containerized GIS applications</li>
+                    <li>✅ Understanding of modern development workflows</li>
+                    <li>✅ Professional portfolio demonstrating you can <strong>build solutions</strong></li>
+                </ul>
+                <p style="margin-top: 1.5em; text-align: center; font-size: 1.1em;">
+                    <strong>Stop seeing GIS as software you use<br>
+                    Start seeing it as problems you solve</strong>
+                </p>
+                <aside class="notes">
+                    By the end of this semester, you'll have a GitHub profile showcasing real skills, deployed containerized applications, 
+                    and a portfolio demonstrating you can build solutions—not just use software.
+                </aside>
+            </section>
+
+            <!-- SLIDE 12: Let's Go! -->
+            <section data-background-color="#4CAF50">
+                <h1 style="color: white;">Let's Build Something Amazing!</h1>
+                <p style="text-align: center; color: white; font-size: 1.2em; margin-top: 2em;">
+                    Complete Activity 0<br>
+                    Join our GitHub organization<br>
+                    See you in class!
+                </p>
+                <aside class="notes">
+                    I'm genuinely excited to work with you. Let's build something amazing this semester. Complete Activity 0, 
+                    join our GitHub organization, and I'll see you in class!
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'slide',
+            plugins: [ RevealNotes ],
+            width: 1280,
+            height: 720,
+            margin: 0.1
+        });
+    </script>
+</body>
+</html>
+
